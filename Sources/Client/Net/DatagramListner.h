@@ -8,7 +8,7 @@ struct IDataConsumer
 	virtual bool ValidateData(QByteArray& data) = 0;
 };
 
-class DatagramListener : QObject {
+class DatagramListener : public QObject {
 	Q_OBJECT
 public:
 	DatagramListener(quint16 port, IDataConsumer* consumer);
@@ -23,5 +23,5 @@ private:
 	bool m_is_in_progress = false;
 	IDataConsumer* m_consumer = nullptr;
 	quint16 m_port = 0;
-	QUdpSocket m_socket = {};
+	QUdpSocket m_socket;
 };
