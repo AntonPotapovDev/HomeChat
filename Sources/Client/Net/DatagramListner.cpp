@@ -28,6 +28,6 @@ void DatagramListener::ProcessDatagrams() {
 	}
 }
 
-bool DatagramListner::IsInProgress() const {
+bool DatagramListener::IsInProgress() const {
 	return m_is_in_progress;
 }
