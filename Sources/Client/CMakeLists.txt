@@ -20,6 +20,7 @@ add_executable(Client
 	${QML_PATH}/views/main.qml
 
     main.cpp
+	Net/DatagramListner.cpp Net/DatagramListner.h
 )
 
 qt5_use_modules(Client Qml Quick)
