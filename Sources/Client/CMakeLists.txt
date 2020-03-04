@@ -21,6 +21,7 @@ add_executable(Client
 
     main.cpp
 	Net/DatagramListener.cpp Net/DatagramListener.h
+	Net/ServerAddressProvider.cpp Net/ServerAddressProvider.h
 )
 
 qt5_use_modules(Client Qml Quick)
