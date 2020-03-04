@@ -20,11 +20,14 @@ add_executable(Client
 	${QML_PATH}/views/main.qml
 
     main.cpp
+	Common/QMLTypes.h
 	Net/DatagramListener.cpp Net/DatagramListener.h
 	Net/ServerAddressProvider.cpp Net/ServerAddressProvider.h
 )
 
 qt5_use_modules(Client Qml Quick)
+
+target_include_directories(Client PUBLIC Common)
 
 target_link_libraries(Client 
     Qt5::Qml

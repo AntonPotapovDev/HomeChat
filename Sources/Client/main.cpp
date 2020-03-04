@@ -1,6 +1,10 @@
 #include <QGuiApplication>
 #include <QQuickView>
 
+#include <QMLTypes.h>
+
+void registerTypes();
+
 int main(int argc, char** argv) {
 	QGuiApplication app(argc, argv);
 
@@ -10,4 +14,9 @@ int main(int argc, char** argv) {
 	view.show();
 
 	return app.exec();
+}
+
+void registerTypes() {
+	std::string modul_name = "HomeChat";
+	qmlRegisterType<ServerAddressProvider>(modul_name.c_str(), 1, 0, "ServerAddress");
 }
