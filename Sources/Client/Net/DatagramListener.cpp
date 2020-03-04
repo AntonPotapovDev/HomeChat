@@ -1,8 +1,13 @@
 #include "DatagramListener.h"
 
-DatagramListener::DatagramListener(quint16 port, IDataConsumer* consumer)
-	: m_port(port)
-	, m_consumer(consumer) {}
+void DatagramListener::Bind(quint16 port) {
+	Stop();
+	m_port = port;
+}
+
+void DatagramListener::SetConsumer(IDataConsumer* consumer) {
+	m_consumer = consumer;
+}
 
 void DatagramListener::Start() {
 	if (m_is_in_progress)
@@ -10,15 +15,18 @@ void DatagramListener::Start() {
 
 	m_socket.bind(m_port, QUdpSocket::ShareAddress);
 	connect(&m_socket, &QUdpSocket::readyRead, this, &DatagramListener::ProcessDatagrams);
+	m_is_in_progress = true;
 }
 
 void DatagramListener::Stop() {
+	if (!m_is_in_progress)
+		return;
+
 	m_socket.abort();
 	m_is_in_progress = false;
 }
 
 void DatagramListener::ProcessDatagrams() {
-	m_is_in_progress = true;
 	QByteArray datagram;
 
 	while (m_socket.hasPendingDatagrams()) {
@@ -32,4 +40,8 @@ void DatagramListener::ProcessDatagrams() {
 
 bool DatagramListener::IsInProgress() const {
 	return m_is_in_progress;
+}
+
+quint16 DatagramListener::Port() const {
+	return m_port;
 }
