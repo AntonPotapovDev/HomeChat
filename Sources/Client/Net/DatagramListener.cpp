@@ -12,6 +12,11 @@ void DatagramListener::Start() {
 	connect(&m_socket, &QUdpSocket::readyRead, this, &DatagramListener::ProcessDatagrams);
 }
 
+void DatagramListener::Stop() {
+	m_socket.abort();
+	m_is_in_progress = false;
+}
+
 void DatagramListener::ProcessDatagrams() {
 	m_is_in_progress = true;
 	QByteArray datagram;
@@ -20,11 +25,8 @@ void DatagramListener::ProcessDatagrams() {
 		datagram.resize(static_cast<int>(m_socket.pendingDatagramSize()));
 		m_socket.readDatagram(datagram.data(), datagram.size());
 
-		if (m_consumer && m_consumer->ValidateData(datagram)) {
-			m_socket.abort();
-			m_is_in_progress = false;
-			break;
-		}
+		if (m_consumer)
+			m_consumer->TakeData(datagram);
 	}
 }
 

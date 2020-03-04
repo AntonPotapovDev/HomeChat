@@ -5,7 +5,7 @@
 
 struct IDataConsumer 
 {
-	virtual bool ValidateData(QByteArray& data) = 0;
+	virtual void TakeData(QByteArray& data) = 0;
 };
 
 class DatagramListener : public QObject {
@@ -14,6 +14,7 @@ public:
 	DatagramListener(quint16 port, IDataConsumer* consumer);
 
 	void Start();
+	void Stop();
 	bool IsInProgress() const;
 
 private:
