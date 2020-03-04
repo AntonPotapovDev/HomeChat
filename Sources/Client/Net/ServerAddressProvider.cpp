@@ -1,3 +1,5 @@
+#include <QHostAddress>
+
 #include "ServerAddressProvider.h"
 
 void ServerAddressProvider::start() {
@@ -22,7 +24,8 @@ QString ServerAddressProvider::getAddress() const {
 }
 
 bool ServerAddressProvider::CheckAddress(const QString& address) {
-	return true;
+	QHostAddress ip_address(address);
+	return ip_address.protocol() == QAbstractSocket::IPv4Protocol;
 }
 
 void ServerAddressProvider::TakeData(QByteArray data) {
