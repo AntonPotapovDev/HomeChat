@@ -27,6 +27,7 @@ public:
 
 signals:
 	void addressChanged();
+	void addressGot();
 	void portChanged();
 
 private:
