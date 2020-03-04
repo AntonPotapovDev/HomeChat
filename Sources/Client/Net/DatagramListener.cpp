@@ -29,7 +29,7 @@ void DatagramListener::Stop() {
 void DatagramListener::ProcessDatagrams() {
 	QByteArray datagram;
 
-	while (m_socket.hasPendingDatagrams()) {
+	while (m_is_in_progress && m_socket.hasPendingDatagrams()) {
 		datagram.resize(static_cast<int>(m_socket.pendingDatagramSize()));
 		m_socket.readDatagram(datagram.data(), datagram.size());
 

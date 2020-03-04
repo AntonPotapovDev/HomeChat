@@ -12,7 +12,7 @@ class ServerAddressProvider
 public:
 	ServerAddressProvider() = default;
 
-	Q_PROPERTY(quint16 port READ getPort WRITE setPort NOTIFY portChanged);
+	Q_PROPERTY(int port READ getPort WRITE setPort NOTIFY portChanged);
 	Q_PROPERTY(QString address READ getAddress NOTIFY addressChanged)
 
 	Q_INVOKABLE void start();

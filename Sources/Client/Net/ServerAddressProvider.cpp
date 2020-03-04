@@ -3,6 +3,7 @@
 #include "ServerAddressProvider.h"
 
 void ServerAddressProvider::start() {
+	m_listener.SetConsumer(this);
 	m_listener.Start();
 }
 
