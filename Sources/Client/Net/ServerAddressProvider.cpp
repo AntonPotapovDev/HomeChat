@@ -2,7 +2,7 @@
 
 #include "ServerAddressProvider.h"
 
-void ServerAddressProvider::start() {
+void ServerAddressProvider::find() {
 	m_listener.SetConsumer(this);
 	m_listener.Start();
 }
@@ -40,6 +40,6 @@ void ServerAddressProvider::TakeData(QByteArray data) {
 	m_listener.Stop();
 
 	if (first_time) 
-		emit addressGot();
+		emit addressFound();
 	emit addressChanged();
 }

@@ -13,9 +13,9 @@ Rectangle
 		port : 8089
 		Component.onCompleted:
 		{
-			server_address.start()
+			server_address.find()
 		}
-		onAddressGot :
+		onAddressFound:
 		{
 			console.log(server_address.address)
 		}

@@ -15,7 +15,7 @@ public:
 	Q_PROPERTY(int port READ getPort WRITE setPort NOTIFY portChanged);
 	Q_PROPERTY(QString address READ getAddress NOTIFY addressChanged)
 
-	Q_INVOKABLE void start();
+	Q_INVOKABLE void find();
 
 	quint16 getPort() const;
 	void setPort(quint16 port);
@@ -27,7 +27,7 @@ public:
 
 signals:
 	void addressChanged();
-	void addressGot();
+	void addressFound();
 	void portChanged();
 
 private:
