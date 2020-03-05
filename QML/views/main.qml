@@ -7,9 +7,9 @@ import "../controls/"
 Rectangle
 {
 	id     : root
-    width  : 1000
-    height : 600
-    color  : Colors.backgroundColor
+    width  : Sizes.appDefaultWidth
+    height : Sizes.appDefaultHeight
+    color  : Colors.background
 
 	ColumnLayout
 	{
@@ -19,18 +19,18 @@ Rectangle
 		{
 			Layout.fillWidth  : true
 			Layout.fillHeight : true
-			Layout.margins    : 20
-			radius            : 20
-			color             : 'white'
+			Layout.margins    : Sizes.largeMargin
+			radius            : Sizes.roundingRadius
+			color             : Colors.uiElement
 		}
 
 		MessageBar 
 		{
 			Layout.fillWidth       : true
-			Layout.preferredHeight : 100
-			Layout.bottomMargin    : 20
-			Layout.leftMargin      : 20
-			Layout.rightMargin     : 20
+			Layout.preferredHeight : Sizes.messageBarHeight
+			Layout.bottomMargin    : Sizes.largeMargin
+			Layout.leftMargin      : Sizes.largeMargin
+			Layout.rightMargin     : Sizes.largeMargin
 		}
 	}
 

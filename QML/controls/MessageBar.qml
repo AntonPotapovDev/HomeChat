@@ -1,6 +1,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
+import HomeChat 1.0
 
 Item 
 {
@@ -20,8 +21,8 @@ Item
 			{
 				id           : leftRoundRect
 				anchors.fill : parent
-				color        : 'white'
-				radius       : 20
+				color        : Colors.uiElement
+				radius       : Sizes.roundingRadius
 				z            : 1
 
 				ScrollView 
@@ -30,9 +31,10 @@ Item
 
 					TextArea  
 					{
-						padding          : 10
-						font.family      : 'Arial'
-						font.pointSize   : 12
+						padding          : Sizes.midPadding
+						font.family      : Fonts.textFont
+						font.pointSize   : Fonts.smallPointSize
+						color            : Fonts.textColor
 						wrapMode         : TextEdit.Wrap
 						selectByKeyboard : true
 						selectByMouse    : true 
@@ -48,16 +50,16 @@ Item
 				anchors.top    : leftRoundRect.top
 				anchors.right  : leftRoundRect.right
 				width          : leftRoundRect.radius
-				color          : 'white'
+				color          : Colors.uiElement
 			}
 		}
 
 		Rectangle 
 		{
 			id                    : centerRec
-			Layout.preferredWidth : 100
+			Layout.preferredWidth : Sizes.messageBarButtonWidth
 			Layout.fillHeight     : true
-			color                 : 'white'
+			color                 : Colors.uiElement
 
 			MouseArea 
 			{
@@ -74,8 +76,7 @@ Item
 				PropertyChanges 
 				{
 					target   : centerRec
-					explicit : true
-					color    : '#ededed'
+					color    : Colors.hoveredUiElement
 				}
 			}
 
@@ -87,7 +88,7 @@ Item
 				PropertyAnimation 
 				{ 
 					properties  : 'color'
-					duration    : 100
+					duration    : Sizes.uiResponseAnimationDuration
 					easing.type : Easing.InOutQuad 
 				}
 			}
@@ -96,10 +97,10 @@ Item
 		Item 
 		{
 			id                    : rightRec
-			Layout.preferredWidth : 100
+			Layout.preferredWidth : Sizes.messageBarButtonWidth
 			Layout.fillHeight     : true
 
-			property color color  : 'white'
+			property color color  : Colors.uiElement
 			
 			MouseArea 
 			{
@@ -116,8 +117,7 @@ Item
 				PropertyChanges 
 				{
 					target   : rightRec
-					explicit : true
-					color    : '#ededed'
+					color    : Colors.hoveredUiElement
 				}
 			}
 
@@ -129,7 +129,7 @@ Item
 				PropertyAnimation 
 				{ 
 					properties  : 'color'
-					duration    : 100
+					duration    : Sizes.uiResponseAnimationDuration
 					easing.type : Easing.InOutQuad 
 				}
 			}
@@ -139,16 +139,16 @@ Item
 				id           : rightRoundRect
 				anchors.fill : parent
 				color        : rightRec.color
-				radius       : 20
+				radius       : Sizes.roundingRadius
 				z            : 1
 
 				Text 
 				{
 					anchors.fill        : parent
-					text                : 'Send'
-					color               : 'black'
-					font.family         : 'Arial'
-					font.pixelSize      : 35
+					text                : Strings.sendButtonText
+					color               : Fonts.textColor
+					font.family         : Fonts.textFont
+					font.pointSize      : Fonts.largePointSize
 					verticalAlignment   : Text.AlignVCenter
 					horizontalAlignment : Text.AlignHCenter
 				}

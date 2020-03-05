@@ -28,4 +28,5 @@ void registerTypes() {
 	qmlRegisterSingletonType(QUrl("qrc:/singletones/Colors.qml"), modul_name.c_str(), 1, 0, "Colors");
 	qmlRegisterSingletonType(QUrl("qrc:/singletones/Sizes.qml"), modul_name.c_str(), 1, 0, "Sizes");
 	qmlRegisterSingletonType(QUrl("qrc:/singletones/Strings.qml"), modul_name.c_str(), 1, 0, "Strings");
+	qmlRegisterSingletonType(QUrl("qrc:/singletones/Fonts.qml"), modul_name.c_str(), 1, 0, "Fonts");
 }
