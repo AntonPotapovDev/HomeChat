@@ -3,59 +3,50 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 import HomeChat 1.0
 
-Item 
+TextArea  
 {
-	id     : root
-	width  : maxWidth
-	height : minHeight
+	id               : root
+	padding          : Sizes.midPadding
+	rightPadding     : roundRect.radius
+	leftPadding      : roundRect.radius
+	font.family      : Fonts.textFont
+	font.pointSize   : Fonts.smallPointSize
+	text             : root.text
+	color            : Fonts.textColor
+	wrapMode         : TextEdit.Wrap
+	readOnly         : true
+	selectByKeyboard : true
+	selectByMouse    : true
 
-	property color color
+	property color backColor
 	property bool isLeftSide : true
-	property var text        : ''
-	property real maxWidth   : 400
-	property real minHeight  : 40
 
-	Component.onCompleted:
+	Component.onCompleted: 
 	{
-		var newWidth = Math.min(root.maxWidth, textArea.contentWidth)
-		var newHeight = Math.max(root.minHeight, textArea.contentHeight)
-		root.width = newWidth
-		root.height = newHeight
+		var newWidth = contentWidth + leftPadding + rightPadding
+		var newHeight = contentHeight + padding * 2
+		width = newWidth
+		height = newHeight
 	}
 
-	Rectangle 
+	background : Item 
 	{
-		id           : roundRect
-		anchors.fill : parent
-		color        : root.color
-		radius       : root.height / 4
-		z            : 1
-
-		TextArea  
+		Rectangle 
 		{
-			id               : textArea
-			anchors.fill     : parent
-			padding          : Sizes.midPadding
-			rightPadding     : roundRect.radius
-			leftPadding      : roundRect.radius
-			font.family      : Fonts.textFont
-			font.pointSize   : Fonts.smallPointSize
-			text             : root.text
-			color            : Fonts.textColor
-			wrapMode         : TextEdit.Wrap
-			readOnly         : true
-			selectByKeyboard : true
-			selectByMouse    : true 
+			id           : roundRect
+			anchors.fill : parent
+			color        : root.backColor
+			radius       : root.height / 4
 		}
-	}
 
-	Rectangle 
-	{
-		id          : sqrRect
-		anchors.top : roundRect.top
-		width       : roundRect.radius
-		height      : roundRect.radius
-		color       : root.color
+		Rectangle 
+		{
+			id          : sqrRect
+			anchors.top : roundRect.top
+			width       : roundRect.radius
+			height      : roundRect.radius
+			color       : root.backColor
+		}
 	}
 
 	states: 
@@ -86,3 +77,4 @@ Item
 		}
 	]
 }
+
