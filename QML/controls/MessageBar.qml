@@ -1,4 +1,5 @@
 import QtQuick 2.14
+import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
 
 Item 
@@ -8,7 +9,7 @@ Item
 	RowLayout 
 	{
 		anchors.fill: parent
-		spacing : 0
+		spacing : 1
 
 		Item 
 		{
@@ -21,6 +22,24 @@ Item
 				anchors.fill : parent
 				color: 'white'
 				radius: 20
+				z: 1
+
+				ScrollView 
+				{
+					anchors.fill: parent
+
+					TextArea  
+					{
+						//anchors.fill : parent
+						padding : 10
+						font.family : 'Arial'
+						font.pixelSize : 30
+						wrapMode : TextEdit.Wrap
+						focus: true
+						selectByKeyboard : true
+						selectByMouse : true 
+					}
+				}
 			}
 
 			Rectangle 
@@ -52,6 +71,18 @@ Item
 				anchors.fill : parent
 				color: 'white'
 				radius: 20
+				z : 1
+
+				Text 
+				{
+					anchors.fill : parent
+					text: 'Send'
+					color : 'black'
+					font.family : 'Arial'
+					font.pixelSize : 35
+					verticalAlignment: Text.AlignVCenter
+					horizontalAlignment: Text.AlignHCenter
+				}
 			}
 
 			Rectangle 
