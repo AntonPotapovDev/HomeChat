@@ -2,6 +2,8 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import HomeChat 1.0
 
+import "../controls/"
+
 Rectangle
 {
 	id : root
@@ -22,31 +24,13 @@ Rectangle
 			radius: 20
 		}
 
-		Item 
+		MessageBar 
 		{
 			Layout.fillWidth : true
+			Layout.preferredHeight : 100
 			Layout.bottomMargin: 20
 			Layout.leftMargin: 20
 			Layout.rightMargin: 20
-			height: 100
-
-			Rectangle
-			{
-				id : roundRect
-				anchors.fill : parent
-				color: 'white'
-				radius: 20
-			}
-
-			Rectangle 
-			{
-				id : sqrRect
-				color: 'white'
-				width: roundRect.radius
-				anchors.bottom : roundRect.bottom
-				anchors.top : roundRect.top
-				anchors.right : roundRect.right
-			}
 		}
 	}
 

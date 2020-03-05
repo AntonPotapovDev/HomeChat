@@ -18,6 +18,7 @@ qtquick_compiler_add_resources(RESOURCES ${QML_PATH}/qml.qrc)
 add_executable(Client
 	${QML_PATH}/qml.qrc
 	${QML_PATH}/views/main.qml
+	${QML_PATH}/controls/MessageBar.qml
 
     main.cpp
 	Common/QMLTypes.h

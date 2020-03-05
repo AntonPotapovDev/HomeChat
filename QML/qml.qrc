@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
             <file>views/main.qml</file>
+            <file>controls/MessageBar.qml</file>
     </qresource>
 </RCC>
