@@ -21,7 +21,9 @@ TextArea
 	property color backColor
 	property bool isLeftSide : true
 
-	Component.onCompleted: 
+	Component.onCompleted: resize()
+
+	function resize() 
 	{
 		var newWidth = contentWidth + leftPadding + rightPadding
 		var newHeight = contentHeight + padding * 2
