@@ -13,7 +13,7 @@ public:
 	ServerAddressProvider() = default;
 
 	Q_PROPERTY(int port READ getPort WRITE setPort NOTIFY portChanged);
-	Q_PROPERTY(QString address READ getAddress NOTIFY addressChanged)
+	Q_PROPERTY(QString address READ getAddress NOTIFY addressFound)
 
 	Q_INVOKABLE void find();
 
@@ -26,7 +26,6 @@ public:
 	void TakeData(QByteArray data) override;
 
 signals:
-	void addressChanged();
 	void addressFound();
 	void portChanged();
 

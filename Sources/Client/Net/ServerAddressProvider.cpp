@@ -35,11 +35,8 @@ void ServerAddressProvider::TakeData(QByteArray data) {
 	if (!CheckAddress(address))
 		return;
 
-	bool first_time = m_address == "";
 	m_address = address;
 	m_listener.Stop();
 
-	if (first_time) 
-		emit addressFound();
-	emit addressChanged();
+	emit addressFound();
 }
