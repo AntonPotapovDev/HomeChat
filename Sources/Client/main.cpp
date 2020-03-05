@@ -20,5 +20,12 @@ int main(int argc, char** argv) {
 
 void registerTypes() {
 	std::string modul_name = "HomeChat";
+
+	//C++ types
 	qmlRegisterType<ServerAddressProvider>(modul_name.c_str(), 1, 0, "ServerAddress");
+
+	//Singletones
+	qmlRegisterSingletonType(QUrl("qrc:/singletones/Colors.qml"), modul_name.c_str(), 1, 0, "Colors");
+	qmlRegisterSingletonType(QUrl("qrc:/singletones/Sizes.qml"), modul_name.c_str(), 1, 0, "Sizes");
+	qmlRegisterSingletonType(QUrl("qrc:/singletones/Strings.qml"), modul_name.c_str(), 1, 0, "Strings");
 }

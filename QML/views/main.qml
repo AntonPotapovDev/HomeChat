@@ -9,7 +9,7 @@ Rectangle
 	id     : root
     width  : 1000
     height : 600
-    color  : '#617cff'
+    color  : Colors.backgroundColor
 
 	ColumnLayout
 	{

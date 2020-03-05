@@ -2,5 +2,8 @@
     <qresource prefix="/">
             <file>views/main.qml</file>
             <file>controls/MessageBar.qml</file>
+            <file>singletones/Colors.qml</file>
+            <file>singletones/Sizes.qml</file>
+            <file>singletones/Strings.qml</file>
     </qresource>
 </RCC>
