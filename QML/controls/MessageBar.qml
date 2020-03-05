@@ -61,6 +61,17 @@ Item
 			Layout.fillHeight     : true
 			color                 : Colors.uiElement
 
+			Text 
+			{
+				anchors.fill        : parent
+				text                : Strings.attachButtonText
+				color               : Fonts.textColor
+				font.family         : Fonts.textFont
+				font.pointSize      : Fonts.largePointSize
+				verticalAlignment   : Text.AlignVCenter
+				horizontalAlignment : Text.AlignHCenter
+			}
+
 			MouseArea 
 			{
 				id: centerMouseArea
