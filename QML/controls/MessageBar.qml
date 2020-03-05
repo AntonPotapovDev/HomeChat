@@ -32,7 +32,7 @@ Item
 					{
 						padding : 10
 						font.family : 'Arial'
-						font.pixelSize : 30
+						font.pointSize : 12
 						wrapMode : TextEdit.Wrap
 						focus: true
 						selectByKeyboard : true
@@ -75,7 +75,7 @@ Item
 				{
 					target   : centerRec
 					explicit : true
-					color    : '#dde4eb'
+					color    : '#ededed'
 				}
 			}
 
@@ -116,7 +116,7 @@ Item
 				{
 					target   : rightRec
 					explicit : true
-					color    : '#dde4eb'
+					color    : '#ededed'
 				}
 			}
 
