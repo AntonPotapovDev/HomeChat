@@ -3,7 +3,7 @@ import QtQuick 2.14
 
 QtObject
 {
-	property color textColor : '#424242'
+	property color textColor : '#f5f5f5'
 	property var textFont    : 'Arial'
 
 	property int smallPointSize : 12
