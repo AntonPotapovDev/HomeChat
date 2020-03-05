@@ -1,11 +1,54 @@
 import QtQuick 2.14
+import QtQuick.Layouts 1.14
 import HomeChat 1.0
 
 Rectangle
 {
-    width: 800
+	id : root
+    width: 1000
     height: 600
-    color: 'skyblue'
+    color: '#617cff'
+
+	ColumnLayout
+	{
+		anchors.fill: parent
+
+		Rectangle 
+		{
+			Layout.fillWidth: true
+			Layout.fillHeight: true
+			Layout.margins : 20
+			color : 'white'
+			radius: 20
+		}
+
+		Item 
+		{
+			Layout.fillWidth : true
+			Layout.bottomMargin: 20
+			Layout.leftMargin: 20
+			Layout.rightMargin: 20
+			height: 100
+
+			Rectangle
+			{
+				id : roundRect
+				anchors.fill : parent
+				color: 'white'
+				radius: 20
+			}
+
+			Rectangle 
+			{
+				id : sqrRect
+				color: 'white'
+				width: roundRect.radius
+				anchors.bottom : roundRect.bottom
+				anchors.top : roundRect.top
+				anchors.right : roundRect.right
+			}
+		}
+	}
 
 	ServerAddress
 	{
