@@ -8,56 +8,56 @@ Item
 
 	RowLayout 
 	{
-		anchors.fill: parent
-		spacing : 1
+		anchors.fill : parent
+		spacing      : 1
 
 		Item 
 		{
-			Layout.fillWidth : true
+			Layout.fillWidth  : true
 			Layout.fillHeight : true
 
 			Rectangle
 			{
-				id : leftRoundRect
+				id           : leftRoundRect
 				anchors.fill : parent
-				color: 'white'
-				radius: 20
-				z: 1
+				color        : 'white'
+				radius       : 20
+				z            : 1
 
 				ScrollView 
 				{
-					anchors.fill: parent
+					anchors.fill : parent
 
 					TextArea  
 					{
-						padding : 10
-						font.family : 'Arial'
-						font.pointSize : 12
-						wrapMode : TextEdit.Wrap
-						focus: true
+						padding          : 10
+						font.family      : 'Arial'
+						font.pointSize   : 12
+						wrapMode         : TextEdit.Wrap
 						selectByKeyboard : true
-						selectByMouse : true 
+						selectByMouse    : true 
+						focus            : true
 					}
 				}
 			}
 
 			Rectangle 
 			{
-				id : leftSqrRect
-				color: 'white'
-				width: leftRoundRect.radius
+				id             : leftSqrRect
 				anchors.bottom : leftRoundRect.bottom
-				anchors.top : leftRoundRect.top
-				anchors.right : leftRoundRect.right
+				anchors.top    : leftRoundRect.top
+				anchors.right  : leftRoundRect.right
+				width          : leftRoundRect.radius
+				color          : 'white'
 			}
 		}
 
 		Rectangle 
 		{
-			id: centerRec
-			Layout.preferredWidth: 100
-			Layout.fillHeight : true
-			color: 'white'
+			id                    : centerRec
+			Layout.preferredWidth : 100
+			Layout.fillHeight     : true
+			color                 : 'white'
 
 			MouseArea 
 			{
@@ -81,8 +81,9 @@ Item
 
 			transitions: Transition		
 			{
-				to : 'hovered'
-				reversible: true
+				to         : 'hovered'
+				reversible : true
+
 				PropertyAnimation 
 				{ 
 					properties  : 'color'
@@ -94,23 +95,23 @@ Item
 
 		Item 
 		{
-			id: rightRec
-			Layout.preferredWidth: 100
-			Layout.fillHeight : true
+			id                    : rightRec
+			Layout.preferredWidth : 100
+			Layout.fillHeight     : true
 
-			property color color: 'white'
+			property color color  : 'white'
 			
 			MouseArea 
 			{
-				id: rightMouseArea
+				id           : rightMouseArea
 				anchors.fill : parent
-				hoverEnabled: true
+				hoverEnabled : true
 			}
 
 			states: State 
 			{
-				name: 'hovered'
-				when: rightMouseArea.containsMouse
+				name : 'hovered'
+				when : rightMouseArea.containsMouse
 
 				PropertyChanges 
 				{
@@ -122,8 +123,9 @@ Item
 
 			transitions: Transition		
 			{
-				to : 'hovered'
-				reversible: true
+				to         : 'hovered'
+				reversible : true
+
 				PropertyAnimation 
 				{ 
 					properties  : 'color'
@@ -134,32 +136,32 @@ Item
 
 			Rectangle
 			{
-				id : rightRoundRect
+				id           : rightRoundRect
 				anchors.fill : parent
-				color: rightRec.color
-				radius: 20
-				z : 1
+				color        : rightRec.color
+				radius       : 20
+				z            : 1
 
 				Text 
 				{
-					anchors.fill : parent
-					text: 'Send'
-					color : 'black'
-					font.family : 'Arial'
-					font.pixelSize : 35
-					verticalAlignment: Text.AlignVCenter
-					horizontalAlignment: Text.AlignHCenter
+					anchors.fill        : parent
+					text                : 'Send'
+					color               : 'black'
+					font.family         : 'Arial'
+					font.pixelSize      : 35
+					verticalAlignment   : Text.AlignVCenter
+					horizontalAlignment : Text.AlignHCenter
 				}
 			}
 
 			Rectangle 
 			{
-				id : rightSqrRect
-				color: rightRec.color
-				width: rightRoundRect.radius
+				id             : rightSqrRect
 				anchors.bottom : rightRoundRect.bottom
-				anchors.top : rightRoundRect.top
-				anchors.left : rightRoundRect.left
+				anchors.left   : rightRoundRect.left
+				anchors.top    : rightRoundRect.top
+				width          : rightRoundRect.radius
+				color          : rightRec.color
 			}
 		}
 	}
