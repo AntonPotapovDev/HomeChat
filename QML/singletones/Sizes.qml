@@ -8,9 +8,12 @@ QtObject
 
 	property real messageBarHeight : 100
 	property real messageBarButtonWidth : 100
+	property real messageBoxPreferredWidth : 400
+	property real messageBoxPreferredHeight : 100
 
-	property int smallMargin    : 5
-	property int largeMargin    : 20
+	property int smallMargin      : 5
+	property int largeMargin      : 20
+	property int extraLargeMargin : 50
 
 	property int midPadding : 10
 

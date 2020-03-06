@@ -17,11 +17,19 @@ Rectangle
 
 		Rectangle 
 		{
+			id                : chatRect
 			Layout.fillWidth  : true
 			Layout.fillHeight : true
 			Layout.margins    : Sizes.largeMargin
 			radius            : Sizes.roundingRadius
 			color             : Colors.uiElement
+
+			MessageView 
+			{
+				id           : msgView
+				anchors.fill : parent
+				model        : 10
+			}
 		}
 
 		MessageBar 

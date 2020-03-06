@@ -18,6 +18,7 @@ qtquick_compiler_add_resources(RESOURCES ${QML_PATH}/qml.qrc)
 add_executable(Client
 	${QML_PATH}/qml.qrc
 	${QML_PATH}/views/main.qml
+	${QML_PATH}/views/MessageView.qml
 	${QML_PATH}/controls/MessageBar.qml
 	${QML_PATH}/controls/MessageBox.qml
 	${QML_PATH}/singletones/Sizes.qml

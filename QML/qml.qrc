@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
             <file>views/main.qml</file>
+            <file>views/MessageView.qml</file>
             <file>controls/MessageBar.qml</file>
             <file>controls/MessageBox.qml</file>
             <file>singletones/Colors.qml</file>
