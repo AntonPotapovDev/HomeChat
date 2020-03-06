@@ -44,6 +44,14 @@ Item
 						selectByKeyboard : true
 						selectByMouse    : true 
 						focus            : true
+
+						Keys.onReturnPressed:
+						{
+							if (event.modifiers & Qt.ControlModifier)
+								insert(text.length, '\n')
+							else
+								root.sending()
+						}
 					}
 				}
 			}

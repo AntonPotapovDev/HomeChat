@@ -48,6 +48,9 @@ Rectangle
 
 			onSending: 
 			{
+				if (msgBar.text.length == 0)
+					return
+
 				var msg = {
 					isOwn : true,
 					name : 'Anton',
