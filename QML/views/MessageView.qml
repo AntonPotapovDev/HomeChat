@@ -24,7 +24,7 @@ Item
 		{
 			id      : column
 			width   : parent.width
-			spacing : 50
+			spacing : Sizes.extraLargeMargin
 
 			Repeater 
 			{
