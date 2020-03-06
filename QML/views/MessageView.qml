@@ -43,9 +43,7 @@ Item
 						id             : msgBox
 						anchors.top    : parent.top
 						anchors.right  : parent.right
-						//width          : Sizes.messageBoxPreferredWidth
-						//height         : Sizes.messageBoxPreferredHeight
-						maxBoxWidth    : 600
+						maxBoxWidth    : parent.width / 2
 						isLeftSide     : !modelData.isOwn
 						authorName     : modelData.name
 						dateTimeString : modelData.dateTime

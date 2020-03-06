@@ -35,7 +35,7 @@ TextArea
 			id           : roundRect
 			anchors.fill : parent
 			color        : backItem.backColor
-			radius       : root.height / 4
+			radius       : Sizes.messageBoxRounding
 			z            : 1
 
 			Text 
