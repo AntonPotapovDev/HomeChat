@@ -13,16 +13,16 @@ Item
 
 	Flickable 
 	{
-		id : flick
-		anchors.fill : parent
+		id            : flick
+		anchors.fill  : parent
 		contentHeight : column.height
-		topMargin : Sizes.extraLargeMargin
-		clip : true
+		topMargin     : Sizes.extraLargeMargin
+		clip          : true
 
 		ColumnLayout
 		{
-			id : column
-			width : parent.width
+			id      : column
+			width   : parent.width
 			spacing : 0
 
 			Repeater 
@@ -31,23 +31,52 @@ Item
 
 				Item 
 				{
-					Layout.fillWidth : true
+					id                     : msgContainer
+					Layout.fillWidth       : true
 					Layout.preferredHeight : Sizes.messageBoxPreferredHeight
-					Layout.rightMargin : Sizes.extraLargeMargin
-					Layout.leftMargin : Sizes.extraLargeMargin
+					Layout.rightMargin     : Sizes.extraLargeMargin
+					Layout.leftMargin      : Sizes.extraLargeMargin
 
 					MessageBox 
 					{
-						id : msgBox
-						anchors.top : parent.top
-						anchors.right : parent.right
-						width : Sizes.messageBoxPreferredWidth
-						height : Sizes.messageBoxPreferredHeight
-						isLeftSide : !modelData.isOwn
-						authorName : modelData.name
+						id             : msgBox
+						anchors.top    : parent.top
+						anchors.right  : parent.right
+						width          : Sizes.messageBoxPreferredWidth
+						height         : Sizes.messageBoxPreferredHeight
+						isLeftSide     : !modelData.isOwn
+						authorName     : modelData.name
 						dateTimeString : modelData.dateTime
-						text : modelData.text
+						text           : modelData.text
 					}
+
+					states: 
+					[
+						State 
+						{
+							name : "left"
+							when : !modelData.isOwn
+
+							AnchorChanges 
+							{
+								target        : msgBox
+								anchors.left  : msgContainer.left
+								anchors.right : undefined
+							}
+						},
+						State 
+						{
+							name : "right"
+							when : modelData.isOwn
+
+							AnchorChanges 
+							{
+								target        : msgBox
+								anchors.left  : undefined
+								anchors.right : msgContainer.right
+							}
+						}
+					]
 				}
 			}
 		}

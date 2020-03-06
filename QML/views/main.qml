@@ -34,26 +34,26 @@ Rectangle
 			property var msgModel : [
 				{
 					isOwn : true,
-					name : 'Anton Potapov',
-					text : 'Hello all!',
+					name : 'Anton',
+					text : 'Short test message!',
 					dateTime : '6/3/2020'
 				},
 				{
 					isOwn : false,
-					name : 'Valusha',
-					text : 'Wooow! God work!',
+					name : 'Blyad',
+					text : 'Multiline test message! Wow! Many word! Such communication!',
 					dateTime : '6/3/2020'
 				},
 				{
 					isOwn : false,
-					name : 'Eugene',
-					text : 'What the fuck am I doing here! Silly place!',
+					name : 'Suka',
+					text : 'Medium length message to test out.',
 					dateTime : '6/3/2020'
 				},
 				{
 					isOwn : true,
-					name : 'Anton Potapov',
-					text : 'Go away if you do not like it!',
+					name : 'Anton',
+					text : '.',
 					dateTime : '6/3/2020'
 				}
 			]
