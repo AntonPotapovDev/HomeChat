@@ -43,12 +43,10 @@ Item
 						anchors.right : parent.right
 						width : Sizes.messageBoxPreferredWidth
 						height : Sizes.messageBoxPreferredHeight
-						isLeftSide : false
-						authorName : 'Anton Potapov'
-						dateTimeString : ''
-						text : 'Hello all! I am glad to see you here in this stupid chat! I need to type mode words to test this veiw.'
-
-						Component.onCompleted : dateTimeString = new Date().toLocaleTimeString()
+						isLeftSide : !modelData.isOwn
+						authorName : modelData.name
+						dateTimeString : modelData.dateTime
+						text : modelData.text
 					}
 				}
 			}

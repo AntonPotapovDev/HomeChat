@@ -28,8 +28,35 @@ Rectangle
 			{
 				id           : msgView
 				anchors.fill : parent
-				model        : 10
+				model        : chatRect.msgModel
 			}
+
+			property var msgModel : [
+				{
+					isOwn : true,
+					name : 'Anton Potapov',
+					text : 'Hello all!',
+					dateTime : '6/3/2020'
+				},
+				{
+					isOwn : false,
+					name : 'Valusha',
+					text : 'Wooow! God work!',
+					dateTime : '6/3/2020'
+				},
+				{
+					isOwn : false,
+					name : 'Eugene',
+					text : 'What the fuck am I doing here! Silly place!',
+					dateTime : '6/3/2020'
+				},
+				{
+					isOwn : true,
+					name : 'Anton Potapov',
+					text : 'Go away if you do not like it!',
+					dateTime : '6/3/2020'
+				}
+			]
 		}
 
 		MessageBar 
