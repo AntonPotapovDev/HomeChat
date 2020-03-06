@@ -17,21 +17,13 @@ TextArea
 	readOnly         : true
 	selectByKeyboard : true
 	selectByMouse    : true
-	width : 0
-	height : 0
+	width : maxBoxWidth + leftPadding + rightPadding
+	height : contentHeight + padding * 2
 
 	property bool isLeftSide : true
 	property var authorName  : ''
 	property var dateTimeString : ''
 	property real maxBoxWidth : 0
-
-	Component.onCompleted: resize()
-
-	function resize() 
-	{
-		width = maxBoxWidth + leftPadding + rightPadding
-		height = 150
-	}
 
 	background : Item 
 	{
