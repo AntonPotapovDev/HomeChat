@@ -20,6 +20,8 @@ TextArea
 
 	property color backColor
 	property bool isLeftSide : true
+	property var authorName  : ''
+	property var dateTimeString : ''
 
 	Component.onCompleted: resize()
 
@@ -39,6 +41,27 @@ TextArea
 			anchors.fill : parent
 			color        : root.backColor
 			radius       : root.height / 4
+			z            : 1
+
+			Text 
+			{
+				text           : root.authorName
+				font.family    : Fonts.textFont
+				font.pointSize : Fonts.verySmallPointSize
+				color          : Fonts.textColor
+				y : -contentHeight
+				x : root.isLeftSide ? Sizes.smallMargin : parent.width - contentWidth - Sizes.smallMargin
+			}
+
+			Text
+			{
+				text : root.dateTimeString
+				font.family    : Fonts.textFont
+				font.pointSize : Fonts.verySmallPointSize
+				color          : Colors.background
+				y : parent.height
+				x : root.isLeftSide ? Sizes.smallMargin : parent.width - contentWidth - Sizes.smallMargin
+			}
 		}
 
 		Rectangle 
