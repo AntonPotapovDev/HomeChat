@@ -7,5 +7,6 @@ QtObject
 	property color uiElement        : '#262626'
 	property color hoveredUiElement : '#333333'
 
-	property color ownMessageColor  : '#193145'
+	property color ownMessageColor   : '#193145'
+	property color otherMessageColor : '#191919'
 }

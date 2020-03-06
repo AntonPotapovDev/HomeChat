@@ -18,7 +18,6 @@ TextArea
 	selectByKeyboard : true
 	selectByMouse    : true
 
-	property color backColor
 	property bool isLeftSide : true
 	property var authorName  : ''
 	property var dateTimeString : ''
@@ -35,11 +34,14 @@ TextArea
 
 	background : Item 
 	{
+		id                       : backItem
+		property color backColor : isLeftSide ? Colors.otherMessageColor : Colors.ownMessageColor
+
 		Rectangle 
 		{
 			id           : roundRect
 			anchors.fill : parent
-			color        : root.backColor
+			color        : backItem.backColor
 			radius       : root.height / 4
 			z            : 1
 
@@ -70,7 +72,7 @@ TextArea
 			anchors.top : roundRect.top
 			width       : roundRect.radius
 			height      : roundRect.radius
-			color       : root.backColor
+			color       : backItem.backColor
 		}
 	}
 
