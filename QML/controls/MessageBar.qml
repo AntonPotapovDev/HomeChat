@@ -7,6 +7,10 @@ Item
 {
 	id:  root
 
+	property alias text : textArea.text
+
+	signal sending
+
 	RowLayout 
 	{
 		anchors.fill : parent
@@ -31,6 +35,7 @@ Item
 
 					TextArea  
 					{
+						id               : textArea
 						padding          : Sizes.midPadding
 						font.family      : Fonts.textFont
 						font.pointSize   : Fonts.smallPointSize
@@ -118,6 +123,7 @@ Item
 				id           : rightMouseArea
 				anchors.fill : parent
 				hoverEnabled : true
+				onClicked    : root.sending()
 			}
 
 			states: State 

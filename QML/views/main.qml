@@ -24,48 +24,39 @@ Rectangle
 			radius            : Sizes.roundingRadius
 			color             : Colors.uiElement
 
+			ListModel
+			{
+				id : msgModel
+			}
+
 			MessageView 
 			{
 				id           : msgView
 				anchors.fill : parent
-				model        : chatRect.msgModel
+				model        : msgModel
 			}
-
-			property var msgModel : [
-				{
-					isOwn : true,
-					name : 'Anton',
-					text : 'Short test message!',
-					dateTime : '6/3/2020'
-				},
-				{
-					isOwn : false,
-					name : 'Blyad',
-					text : 'This property holds the transition to be run for items that are part of this positioner at the time of its creation. The transition is run when the positioner is first created. The transition is run when the positioner is first created. The transition is run when the positioner is first created.',
-					dateTime : '6/3/2020'
-				},
-				{
-					isOwn : false,
-					name : 'Suka',
-					text : 'Medium length message to test out.',
-					dateTime : '6/3/2020'
-				},
-				{
-					isOwn : true,
-					name : 'Anton',
-					text : '.',
-					dateTime : '6/3/2020'
-				}
-			]
 		}
 
 		MessageBar 
 		{
+			id                     : msgBar
 			Layout.fillWidth       : true
 			Layout.preferredHeight : Sizes.messageBarHeight
 			Layout.bottomMargin    : Sizes.largeMargin
 			Layout.leftMargin      : Sizes.largeMargin
 			Layout.rightMargin     : Sizes.largeMargin
+
+			onSending: 
+			{
+				var msg = {
+					isOwn : true,
+					name : 'Anton',
+					text : msgBar.text,
+					dateTime : '6/3/2020'
+				}
+				msgModel.append(msg)
+				msgBar.text = ''
+			}
 		}
 	}
 

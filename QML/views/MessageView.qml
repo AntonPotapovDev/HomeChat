@@ -29,12 +29,11 @@ Item
 			Repeater 
 			{
 				model : root.model
-
-				Item 
+				delegate: Item 
 				{
 					id                     : msgContainer
 					Layout.fillWidth       : true
-					Layout.preferredHeight : childrenRect.height
+					Layout.preferredHeight : msgBox.height
 					Layout.rightMargin     : Sizes.extraLargeMargin
 					Layout.leftMargin      : Sizes.extraLargeMargin
 
@@ -44,10 +43,10 @@ Item
 						anchors.top    : parent.top
 						anchors.right  : parent.right
 						maxBoxWidth    : parent.width / 2
-						isLeftSide     : !modelData.isOwn
-						authorName     : modelData.name
-						dateTimeString : modelData.dateTime
-						text           : modelData.text
+						isLeftSide     : !model.isOwn
+						authorName     : model.name
+						dateTimeString : model.dateTime
+						text           : model.text
 					}
 
 					states: 
@@ -55,7 +54,7 @@ Item
 						State 
 						{
 							name : "left"
-							when : !modelData.isOwn
+							when : !model.isOwn
 
 							AnchorChanges 
 							{
@@ -67,7 +66,7 @@ Item
 						State 
 						{
 							name : "right"
-							when : modelData.isOwn
+							when : model.isOwn
 
 							AnchorChanges 
 							{
