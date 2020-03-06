@@ -17,13 +17,14 @@ Item
 		anchors.fill  : parent
 		contentHeight : column.height
 		topMargin     : Sizes.extraLargeMargin
+		bottomMargin  : Sizes.extraLargeMargin
 		clip          : true
 
 		ColumnLayout
 		{
 			id      : column
 			width   : parent.width
-			spacing : 0
+			spacing : 50
 
 			Repeater 
 			{
@@ -33,7 +34,7 @@ Item
 				{
 					id                     : msgContainer
 					Layout.fillWidth       : true
-					Layout.preferredHeight : Sizes.messageBoxPreferredHeight
+					Layout.preferredHeight : childrenRect.height
 					Layout.rightMargin     : Sizes.extraLargeMargin
 					Layout.leftMargin      : Sizes.extraLargeMargin
 
@@ -42,8 +43,9 @@ Item
 						id             : msgBox
 						anchors.top    : parent.top
 						anchors.right  : parent.right
-						width          : Sizes.messageBoxPreferredWidth
-						height         : Sizes.messageBoxPreferredHeight
+						//width          : Sizes.messageBoxPreferredWidth
+						//height         : Sizes.messageBoxPreferredHeight
+						maxBoxWidth    : 600
 						isLeftSide     : !modelData.isOwn
 						authorName     : modelData.name
 						dateTimeString : modelData.dateTime

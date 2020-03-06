@@ -41,7 +41,7 @@ Rectangle
 				{
 					isOwn : false,
 					name : 'Blyad',
-					text : 'Multiline test message! Wow! Many word! Such communication!',
+					text : 'This property holds the transition to be run for items that are part of this positioner at the time of its creation. The transition is run when the positioner is first created. The transition is run when the positioner is first created. The transition is run when the positioner is first created.',
 					dateTime : '6/3/2020'
 				},
 				{
