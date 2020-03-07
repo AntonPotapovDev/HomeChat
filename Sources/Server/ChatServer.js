@@ -1,19 +1,24 @@
-const dgram = require('dgram')
-const emiter = dgram.createSocket('udp4')
 const broadcast_address = '255.255.255.255'
 const port = 8089
-const interval = 500
 
-var local_ip = ""
+let local_ip = ''
+
+let message_log = []
+
+function main() {
+    init()
+    startListen()
+    startBroadcast()
+}
 
 function init() {
-    var os = require('os');
-    var ifaces = os.networkInterfaces();
+    const os = require('os')
+    let ifaces = os.networkInterfaces()
 
-    Object.keys(ifaces).forEach(function (ifname) {
-        var alias = 0
+    Object.keys(ifaces).forEach( ifname => {
+        let alias = 0
 
-        ifaces[ifname].forEach(function (iface) {
+        ifaces[ifname].forEach( iface => {
             if ('IPv4' !== iface.family || iface.internal !== false)
                 return
 
@@ -23,24 +28,45 @@ function init() {
                 local_ip = iface.address
 
             ++alias
-        });
-    });
+        })
+    })
 }
 
 function startBroadcast() {
+    const emiter = require('dgram').createSocket('udp4')
+    const interval = 500
+
+    let broadcast = () => {
+        let msg = Buffer.from(local_ip)
+        emiter.send(msg, 0, msg.length, port, broadcast_address, err => {
+            if (err)
+                console.log(err)
+        })
+    }
+
     emiter.bind(() => {
         emiter.setBroadcast(true)
         broadcast_task = setInterval(broadcast, interval)
     })
 }
 
-function broadcast() {
-    let msg = Buffer.from(local_ip)
-    emiter.send(msg, 0, msg.length, port, broadcast_address, (err) => {
-        if (err)
-            console.log(err)
+function startListen() {
+    const express = require('express')
+    const bodyParser = require('body-parser')
+    const app = express()
+
+    app.use(bodyParser.json())
+
+    app.post('/message.get', (request, response) => {
+        response.status(200).json({ messages: message_log })
     })
+
+    app.post('/message.new', (request, response) => {
+        message_log.push(request.body)
+        response.status(200).end()
+    })
+
+    app.listen(port)
 }
 
-init()
-startBroadcast()
+main()
