@@ -3,6 +3,8 @@ const port = 8089
 
 let local_ip = ''
 
+let message_log = []
+
 function main() {
     init()
     startListen()
@@ -55,8 +57,13 @@ function startListen() {
 
     app.use(bodyParser.json())
 
-    app.post('/', (request, response) => {
-        console.log(request.body)
+    app.post('/message.get', (request, response) => {
+        response.status(200).json({ messages: message_log })
+    })
+
+    app.post('/message.new', (request, response) => {
+        message_log.push(request.body)
+        response.status(200).end()
     })
 
     app.listen(port)
