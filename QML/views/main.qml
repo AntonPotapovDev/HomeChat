@@ -12,6 +12,22 @@ Rectangle
     height : Sizes.appDefaultHeight
     color  : Colors.background
 
+	property var ownLogin : 'tosha77'
+	property var ownName : 'Anton'
+
+	function receiveMessages(resp) {
+		var msg = resp.messages[resp.messages.length - 1]
+
+		var element = {
+			isOwn : ownLogin == msg.login,
+			name : msg.name,
+			text : msg.text,
+			dateTime : new Date(msg.dateTime).toLocaleString()
+		}
+
+		msgModel.append(element)
+	}
+
 	ColumnLayout
 	{
 		anchors.fill : parent
@@ -53,13 +69,15 @@ Rectangle
 					return
 
 				var msg = {
-					isOwn : true,
-					name : 'Anton',
-					text : msgBar.text,
-					dateTime : '6/3/2020'
+					login: root.ownLogin,
+					name: root.ownName,
+					text: msgBar.text,
+					dateTime: new Date()
 				}
-				msgModel.append(msg)
+
 				msgBar.text = ''
+				Chat.send(msg)
+				Chat.messages(root.receiveMessages)
 			}
 		}
 	}
@@ -69,11 +87,7 @@ Rectangle
 		id   : server_address
 		port : 8089
 
-		Component.onCompleted: server_address.find()
-		onAddressFound: {
-			Chat.init(address, port)
-			Chat.send({ hello : 'new hello!' })
-			Chat.messages((resp) => { console.log(resp.messages) })
-		}
+		Component.onCompleted: find()
+		onAddressFound: Chat.init(address, port)
 	}
 }
