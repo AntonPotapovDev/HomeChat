@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.14
 import HomeChat 1.0
 
 import "../controls/"
+import "../JS/net_helper.js" as Chat
 
 Rectangle
 {
@@ -70,33 +71,9 @@ Rectangle
 
 		Component.onCompleted: server_address.find()
 		onAddressFound: {
-			console.log(address)
-			var url = 'http://' + server_address.address + ':' + port + '/message.get'
-
-			var json = JSON.stringify({
-				name: "Foo",
-				surname: "bar"
-			});
-
-			var request = new XMLHttpRequest()
-			request.open('POST', url)
-
-			request.onreadystatechange = () => {
-				if (request.readyState !== XMLHttpRequest.DONE)
-					return
-
-				let resp = {}
-
-				if (request.status && request.status === 200)
-					resp = JSON.parse(request.responseText) 
-				else
-					resp.error = "HTTP:" + request.status
-
-				console.log(resp.messages[0].hello)
-			}
-
-			request.setRequestHeader('Content-Type', 'application/json; charset=utf-8')
-			request.send()
+			Chat.init(address, port)
+			Chat.send({ hello : 'new hello!' })
+			Chat.messages((resp) => { console.log(resp.messages) })
 		}
 	}
 }
