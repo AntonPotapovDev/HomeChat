@@ -108,6 +108,29 @@ Rectangle
 		{
 			Chat.init(address, port)
 			timer.start()
+			let req = Chat.method('register', resp => {
+				console.log(resp.register_status)
+			})
+			let user = {
+				name: root.ownName,
+				email: root.ownEmail,
+				password: '11121998q',
+				code: 123
+			}
+			let json = JSON.stringify(user)
+			req.send(json)
+
+			let new_req = Chat.method('login', resp => {
+				//console.log('Tosha samii lychii chom!lasia tebia lubit kak i ia tebia lublu!chom! ti ymnitsa!')
+				console.log(resp.login_status)
+			})
+
+			let info = {
+				email: root.ownEmail,
+				password: '11121998q'
+			}
+			let new_json = JSON.stringify(info)
+			new_req.send(new_json)
 		}
 	}
 }

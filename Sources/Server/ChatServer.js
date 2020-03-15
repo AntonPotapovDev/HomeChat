@@ -6,7 +6,7 @@ let local_ip = ''
 let message_log = []
 let lastIndex = 0
 let users = []
-let access_codes = []
+let access_codes = [{email: 'protestandprotect52@gmail.com', code: 123}]
 
 function main() {
     init()
