@@ -6,8 +6,9 @@ function init(address, port) {
     server_port = port 
 }
 
-function messages(callback) {
-    let request = method('message.get', callback)
+function messages(callback, index) {
+    let params = [ { name : 'from', value : index.toString() } ]
+    let request = method('message.get', callback, params)
     request.send()
 }
 
@@ -17,8 +18,12 @@ function send(message) {
     request.send(json)
 }
 
-function method(name, callback) {
+function method(name, callback, params) {
     let url = 'http://' + server_ip + ':' + server_port + '/' + name
+
+    if (params && params.length)
+        for (let i = 0; i < params.length; i++)
+            url.searchParams.set(params[i].name, params[i].value)
 
     let request = new XMLHttpRequest()
     request.open('POST', url)

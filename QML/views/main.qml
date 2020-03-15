@@ -12,20 +12,25 @@ Rectangle
     height : Sizes.appDefaultHeight
     color  : Colors.background
 
-	property var ownLogin : 'tosha77'
+	property var ownEmail : 'protestandprotect52@gmail.com'
 	property var ownName : 'Anton'
+	property int lastMsgIndex : -1
 
 	function receiveMessages(resp) {
-		var msg = resp.messages[0]
+		var messages = resp.messages
 
-		var element = {
-			isOwn : ownLogin == msg.login,
-			name : msg.name,
-			text : msg.text,
-			dateTime : new Date(msg.dateTime).toLocaleString()
+		for (var i = 0; i < messages.length; i++) 
+		{
+			var msg = messages[i]
+			var element = {
+				isOwn : ownEmail == msg.email,
+				name : msg.name,
+				text : msg.text,
+				dateTime : new Date(msg.dateTime).toLocaleString()
+			}
+
+			msgModel.append(element)
 		}
-
-		msgModel.append(element)
 	}
 
 	ColumnLayout
@@ -69,7 +74,7 @@ Rectangle
 					return
 
 				var msg = {
-					login: root.ownLogin,
+					email: root.ownEmail,
 					name: root.ownName,
 					text: msgBar.text,
 					dateTime: new Date()
@@ -77,9 +82,19 @@ Rectangle
 
 				msgBar.text = ''
 				Chat.send(msg)
-				Chat.messages(root.receiveMessages)
+				//Chat.messages(root.receiveMessages)
 			}
 		}
+	}
+
+	Timer 
+	{
+		id             : timer
+		interval       : 10000
+		repeat         : true
+		triggeredOnStart : true
+
+		onTriggered: Chat.messages(root.receiveMessages, root.lastMsgIndex)
 	}
 
 	ServerAddress
@@ -88,6 +103,10 @@ Rectangle
 		port : 8089
 
 		Component.onCompleted: find()
-		onAddressFound: Chat.init(address, port)
+		onAddressFound: 
+		{
+			Chat.init(address, port)
+			timer.start()
+		}
 	}
 }
