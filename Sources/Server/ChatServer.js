@@ -58,11 +58,17 @@ function startListen() {
     app.use(bodyParser.json())
 
     app.post('/message.get', (request, response) => {
-        response.status(200).json({ messages: message_log })
+        let index = request.query.from
+
+        let result = index !== undefined ? { messages: message_log.slice(index) }
+            : { messages: message_log }
+
+        response.status(200).json(result)
     })
 
     app.post('/message.new', (request, response) => {
         message_log.push(request.body)
+        console.log(request.body)
         response.status(200).end()
     })
 

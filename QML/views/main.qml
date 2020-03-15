@@ -16,7 +16,7 @@ Rectangle
 	property var ownName : 'Anton'
 
 	function receiveMessages(resp) {
-		var msg = resp.messages[resp.messages.length - 1]
+		var msg = resp.messages[0]
 
 		var element = {
 			isOwn : ownLogin == msg.login,
