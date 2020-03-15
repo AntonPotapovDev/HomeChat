@@ -21,9 +21,13 @@ function send(message) {
 function method(name, callback, params) {
     let url = 'http://' + server_ip + ':' + server_port + '/' + name
 
-    if (params && params.length)
+    if (params && params.length) {
+        let args = []
         for (let i = 0; i < params.length; i++)
-            url.searchParams.set(params[i].name, params[i].value)
+            args.push(params[i].name + '=' + params[i].value)
+
+        url = url + '?' + args.join('&')
+    }
 
     let request = new XMLHttpRequest()
     request.open('POST', url)

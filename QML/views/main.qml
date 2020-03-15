@@ -28,9 +28,11 @@ Rectangle
 				text : msg.text,
 				dateTime : new Date(msg.dateTime).toLocaleString()
 			}
-
 			msgModel.append(element)
 		}
+
+		if (messages && messages.length)
+			lastMsgIndex = messages[messages.length - 1].index + 1
 	}
 
 	ColumnLayout
@@ -82,7 +84,6 @@ Rectangle
 
 				msgBar.text = ''
 				Chat.send(msg)
-				//Chat.messages(root.receiveMessages)
 			}
 		}
 	}
@@ -90,7 +91,7 @@ Rectangle
 	Timer 
 	{
 		id             : timer
-		interval       : 10000
+		interval       : Sizes.messageFetchingInterval
 		repeat         : true
 		triggeredOnStart : true
 

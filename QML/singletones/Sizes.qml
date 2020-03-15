@@ -19,4 +19,5 @@ QtObject
 	property int messageBoxRounding : 10
 
 	property int uiResponseAnimationDuration : 100
+	property int messageFetchingInterval     : 250
 }

@@ -4,6 +4,7 @@ const port = 8089
 let local_ip = ''
 
 let message_log = []
+let lastIndex = 0
 
 function main() {
     init()
@@ -58,15 +59,17 @@ function startListen() {
     app.use(bodyParser.json())
 
     app.post('/message.get', (request, response) => {
-        let index = request.query.from
+        let index = parseInt(request.query.from)
 
-        let result = index !== undefined ? { messages: message_log.slice(index) }
+        let result = index !== undefined && index != -1 ? { messages: message_log.slice(index) }
             : { messages: message_log }
 
         response.status(200).json(result)
     })
 
     app.post('/message.new', (request, response) => {
+        request.body.index = lastIndex
+        lastIndex++
         message_log.push(request.body)
         console.log(request.body)
         response.status(200).end()
