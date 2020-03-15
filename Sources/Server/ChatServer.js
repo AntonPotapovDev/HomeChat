@@ -85,11 +85,11 @@ function startListen() {
         let access_code = parseInt(request.body.code)
         let email = request.body.email
 
-        let is_new_user = users.findIndex((element) => {
+        let is_new_user = users.findIndex(element => {
             return element.email == email 
         }) == -1
 
-        let let_access = access_codes.findIndex((element) => {
+        let let_access = access_codes.findIndex(element => {
             return element.email == email && element.code == access_code
         })
 
@@ -109,7 +109,23 @@ function startListen() {
     })
 
     app.post('/login', (request, response) => {
+        let success_code = 0
+        let no_such_user_code = 1
+        let bad_password_code = 2
 
+        let user_index = users.findIndex(element => {
+            return element.email == request.body.email
+        })
+
+        if (user_index == -1) {
+            response.status(200).json({ login_status: no_such_user_code })
+            return
+        }
+
+        if (users[user_index].password == request.body.password)
+            response.status(200).json({ login_status: success_code })
+        else
+            response.status(200).json({ login_status: bad_password_code })
     })
 
     app.listen(port)
