@@ -18,6 +18,18 @@ function send(message) {
     request.send(json)
 }
 
+function register(callback, info) {
+    let request = method('register', callback)
+    let json = JSON.stringify(info)
+    request.send(json)
+}
+
+function login(callback, info) {
+    let request = method('login', callback)
+    let json = JSON.stringify(info)
+    request.send(json)
+}
+
 function method(name, callback, params) {
     let url = 'http://' + server_ip + ':' + server_port + '/' + name
 
