@@ -3,6 +3,7 @@
             <file>JS/net_helper.js</file>
             <file>views/main.qml</file>
             <file>views/MessageView.qml</file>
+            <file>views/LoginView.qml</file>
             <file>controls/MessageBar.qml</file>
             <file>controls/MessageBox.qml</file>
             <file>singletones/Colors.qml</file>

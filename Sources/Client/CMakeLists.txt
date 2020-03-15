@@ -20,6 +20,7 @@ add_executable(Client
 	${QML_PATH}/JS/net_helper.js
 	${QML_PATH}/views/main.qml
 	${QML_PATH}/views/MessageView.qml
+	${QML_PATH}/views/LoginView.qml
 	${QML_PATH}/controls/MessageBar.qml
 	${QML_PATH}/controls/MessageBox.qml
 	${QML_PATH}/singletones/Sizes.qml
