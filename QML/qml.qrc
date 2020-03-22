@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
             <file>JS/net_helper.js</file>
+		    <file>models/MessageModel.qml</file>
             <file>views/main.qml</file>
             <file>views/MessageView.qml</file>
             <file>controls/MessageBar.qml</file>
