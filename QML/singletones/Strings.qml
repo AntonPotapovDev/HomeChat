@@ -7,7 +7,7 @@ QtObject
 	property string attachButtonText  : 'Add'
 
 	property string passwordCharacter       : '*'
-	property string emailPlaceholderText    : 'Email address'
+	property string emailPlaceholderText    : 'Email: email@address.com'
 	property string passwordPlaceholderText : 'Password'
 	property string loginText               : 'Sign In'
 }
