@@ -9,4 +9,5 @@ QtObject
 	property string passwordCharacter       : '*'
 	property string emailPlaceholderText    : 'Email address'
 	property string passwordPlaceholderText : 'Password'
+	property string loginText               : 'Sign In'
 }

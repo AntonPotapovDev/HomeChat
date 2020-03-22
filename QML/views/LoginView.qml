@@ -17,8 +17,8 @@ Rectangle
 
 		Text 
 		{
-			width               : 300
-			text                : 'Sign In'
+			width               : Sizes.customFieldWidth
+			text                : Strings.loginText
 			color               : Fonts.textColor 
 			font.family         : Fonts.textFont
 			font.pointSize      : Fonts.largePointSize
@@ -28,15 +28,15 @@ Rectangle
 
 		CustomField 
 		{
-			width           : 300
-			height          : 50
+			width           : Sizes.customFieldWidth
+			height          : Sizes.customFieldHeight
 			placeholderText : Strings.emailPlaceholderText
 		}
 
 		CustomField 
 		{
-			width                : 300
-			height               : 50
+			width                : Sizes.customFieldWidth
+			height               : Sizes.customFieldHeight
 			placeholderText      : Strings.passwordPlaceholderText
 			placeholderTextColor : Fonts.placeholderTextColor
 			echoMode             : TextInput.Password

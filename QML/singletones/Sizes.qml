@@ -9,6 +9,9 @@ QtObject
 	property real messageBarHeight      : 100
 	property real messageBarButtonWidth : 100
 
+	property real customFieldWidth  : 300
+	property real customFieldHeight : 50
+
 	property int smallMargin      : 5
 	property int largeMargin      : 20
 	property int extraLargeMargin : 50
