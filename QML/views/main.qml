@@ -35,8 +35,8 @@ Rectangle
 				serverAPI : ChatAPI
 				userInfo:
 				{
-					email: root.ownEmail
-					name: root.ownName
+					"email": root.ownEmail,
+					"name": root.ownName
 				}
 			}
 

@@ -23,7 +23,7 @@ Item
 				text : msg.text,
 				dateTime : new Date(msg.dateTime).toLocaleString()
 			}
-			listModel.append(element)
+			list_model.append(element)
 		}
 
 		if (messages && messages.length)
