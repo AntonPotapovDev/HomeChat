@@ -30,7 +30,12 @@ Rectangle
 		{
 			width           : Sizes.customFieldWidth
 			height          : Sizes.customFieldHeight
+			focus           : true
 			placeholderText : Strings.emailPlaceholderText
+			validator: RegularExpressionValidator
+			{
+				regularExpression : /\w+@\w+\.\w+/
+			}
 		}
 
 		CustomField 
@@ -41,6 +46,10 @@ Rectangle
 			placeholderTextColor : Fonts.placeholderTextColor
 			echoMode             : TextInput.Password
 			passwordCharacter    : Strings.passwordCharacter
+			validator: RegularExpressionValidator
+			{
+				regularExpression : /\w+/
+			}
 		}
 	}
 }
