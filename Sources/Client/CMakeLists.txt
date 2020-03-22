@@ -24,6 +24,7 @@ add_executable(Client
 	${QML_PATH}/views/LoginView.qml
 	${QML_PATH}/controls/MessageBar.qml
 	${QML_PATH}/controls/MessageBox.qml
+	${QML_PATH}/controls/CustomField.qml
 	${QML_PATH}/singletones/Sizes.qml
 	${QML_PATH}/singletones/Colors.qml
 	${QML_PATH}/singletones/Strings.qml
