@@ -98,7 +98,7 @@ Rectangle
 		onTriggered: Chat.messages(root.receiveMessages, root.lastMsgIndex)
 	}
 
-	ServerAddress
+	ServerAddressProvider
 	{
 		id   : server_address
 		port : 8089
