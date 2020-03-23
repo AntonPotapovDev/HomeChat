@@ -51,5 +51,14 @@ Rectangle
 				regularExpression : /\w+/
 			}
 		}
+
+		CustomButton 
+		{
+			width      : Sizes.customFieldWidth
+			height     : Sizes.customFieldHeight
+			backColor  : Colors.ownMessageColor
+			hoverColor : Colors.ownMessageHoverColor
+			text       : Strings.loginText
+		}
 	}
 }

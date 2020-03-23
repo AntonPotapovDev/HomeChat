@@ -8,6 +8,7 @@
             <file>controls/MessageBar.qml</file>
             <file>controls/MessageBox.qml</file>
 		    <file>controls/CustomField.qml</file>
+		    <file>controls/CustomButton.qml</file>
             <file>singletones/Colors.qml</file>
             <file>singletones/Sizes.qml</file>
             <file>singletones/Strings.qml</file>
