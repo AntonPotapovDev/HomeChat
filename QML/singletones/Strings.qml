@@ -3,6 +3,8 @@ import QtQuick 2.14
 
 QtObject 
 {
+	property string appName : 'Home Chat'
+
 	property string sendButtonText    : 'Send'
 	property string attachButtonText  : 'Add'
 

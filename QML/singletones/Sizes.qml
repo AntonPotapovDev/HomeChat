@@ -13,6 +13,7 @@ QtObject
 	property real customFieldHeight : 50
 
 	property int smallMargin      : 5
+	property int mediumMargin     : 10
 	property int largeMargin      : 20
 	property int extraLargeMargin : 50
 
