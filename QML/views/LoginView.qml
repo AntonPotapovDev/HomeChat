@@ -13,15 +13,15 @@ Rectangle
 	{
 		anchors.horizontalCenter : parent.horizontalCenter
 		anchors.verticalCenter   : parent.verticalCenter
-		spacing                  : Sizes.largeMargin
+		spacing                  : Sizes.mediumMargin
 
 		Text 
 		{
 			width               : Sizes.customFieldWidth
-			text                : Strings.loginText
-			color               : Fonts.textColor 
+			text                : Strings.appName
+			color               : Colors.ownMessageColor
 			font.family         : Fonts.textFont
-			font.pointSize      : Fonts.largePointSize
+			font.pointSize      : Fonts.extraLargePointSize
 			verticalAlignment   : Text.AlignVCenter
 			horizontalAlignment : Text.AlignHCenter
 		}
