@@ -29,7 +29,7 @@ Rectangle
             property    : 'x'
             from        : -root.width
             to          : 0
-            duration    : 100
+            duration    : Sizes.viewSwitchingAnimationDuration
             easing.type : Easing.InOutQuad 
         }
 	}
@@ -60,7 +60,7 @@ Rectangle
             property    : 'x'
             from        : -root.width
             to          : 0
-            duration    : 100
+            duration    : Sizes.viewSwitchingAnimationDuration
             easing.type : Easing.InOutQuad 
         }
 	}

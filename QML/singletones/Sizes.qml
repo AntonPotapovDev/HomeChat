@@ -22,6 +22,7 @@ QtObject
 	property int roundingRadius     : 20
 	property int messageBoxRounding : 10
 
-	property int uiResponseAnimationDuration : 100
-	property int messageFetchingInterval     : 250
+	property int uiResponseAnimationDuration    : 100
+	property int viewSwitchingAnimationDuration : 100
+	property int messageFetchingInterval        : 250
 }
