@@ -4,7 +4,6 @@ import HomeChat 1.0
 
 import "../controls/"
 import "../models/"
-import "../JS/net_helper.js" as ChatAPI
 
 Rectangle
 {
@@ -13,6 +12,7 @@ Rectangle
     height : Sizes.appDefaultHeight
     color  : Colors.background
 
+	property var serverAPI
 	property var ownEmail : 'protestandprotect52@gmail.com'
 	property var ownName : 'Anton'
 	
@@ -32,7 +32,7 @@ Rectangle
 			MessageModel
 			{
 				id        : msgModel
-				serverAPI : ChatAPI
+				serverAPI : root.serverAPI
 				userInfo:
 				{
 					"email": root.ownEmail,

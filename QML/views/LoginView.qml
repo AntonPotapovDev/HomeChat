@@ -3,16 +3,13 @@ import QtQuick.Layouts 1.14
 import HomeChat 1.0
 
 import "../controls/"
-import "../JS/net_helper.js" as ChatAPI
 
 Rectangle 
 {
 	id    : root
 	color : Colors.background
 	
-	property var serverAPI : ChatAPI
-
-	Component.onCompleted: serverAPI.init('192.168.1.5', 8089)
+	property var serverAPI
 
 	function login() {
 		if (!email_field.acceptableInput || !password_field.acceptableInput)

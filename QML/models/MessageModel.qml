@@ -46,38 +46,6 @@ Item
 		id : list_model
 	}
 
-	ServerAddressProvider
-	{
-		id   : server_address
-		port : 8089
-
-		Component.onCompleted: find()
-		onAddressFound: 
-		{
-			serverAPI.init(address, port)
-			timer.start()
-
-			let user = {
-				name: root.userInfo.name,
-				email: root.userInfo.email,
-				password: '11121998q',
-				code: 123
-			}
-
-			serverAPI.register(resp => { console.log(resp.register_status) }, user)
-
-			let info = {
-				email: root.userInfo.email,
-				password: '11121998q'
-			}
-
-			serverAPI.login(resp => {
-				//console.log('Tosha samii lychii chom!lasia tebia lubit kak i ia tebia lublu!chom! ti ymnitsa!')
-				console.log(resp.login_status)
-			}, info)
-		}
-	}
-
 	Timer 
 	{
 		id               : timer
