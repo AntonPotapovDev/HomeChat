@@ -13,8 +13,7 @@ Rectangle
     color  : Colors.background
 
 	property var serverAPI
-	property var ownEmail : 'protestandprotect52@gmail.com'
-	property var ownName : 'Anton'
+	property var userInfo
 	
 	ColumnLayout
 	{
@@ -33,11 +32,7 @@ Rectangle
 			{
 				id        : msgModel
 				serverAPI : root.serverAPI
-				userInfo:
-				{
-					"email": root.ownEmail,
-					"name": root.ownName
-				}
+				userInfo  : root.userInfo
 			}
 
 			MessageView 

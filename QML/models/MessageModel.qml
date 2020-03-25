@@ -11,6 +11,8 @@ Item
 	
 	property alias model : list_model 
 
+	Component.onCompleted : timer.start()
+
 	function receiveMessages(resp) {
 		var messages = resp.messages
 

@@ -11,6 +11,8 @@ Rectangle
 	
 	property var serverAPI
 
+	signal successfullAutorized(string email, string name)
+
 	function login() {
 		if (!email_field.acceptableInput || !password_field.acceptableInput)
 			return
@@ -19,13 +21,14 @@ Rectangle
 			email: email_field.text,
 			password: password_field.text
 		}
-		serverAPI.login(resp => process_error(resp.login_status), info)
+		serverAPI.login(process_response, info)
 	}
 
-	function process_error(error_code) {
+	function process_response(response) {
 		var text = ''
-		switch(error_code) {
-			case 0: break
+		switch(response.login_status) {
+			case 0: root.successfullAutorized(email_field.text, response.user_name)
+					break
 			case 1: text = Strings.noSuchUserError
 					break
 			case 2: text = Strings.badPasswordError

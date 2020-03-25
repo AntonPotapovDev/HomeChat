@@ -8,6 +8,7 @@ Item
 	id : root
 
 	property string state : 'login'
+	property var userInfo
 
 	Loader 
 	{
@@ -17,6 +18,7 @@ Item
 		sourceComponent: ChatView
 		{
 			serverAPI : ChatAPI
+			userInfo  : root.userInfo
 		}
 	}
 	
@@ -25,10 +27,18 @@ Item
 		id           : login_view_loader
 		anchors.fill : parent
 		active       : root.state == 'login'
-		sourceComponent: 
-		LoginView 
+		sourceComponent: LoginView 
 		{
 			serverAPI : ChatAPI
+			onSuccessfullAutorized:
+			{
+				var info = {
+					email: email,
+					name: name
+				}
+				root.userInfo = info
+				root.state = 'chat'
+			} 
 		}
 	}
 
@@ -38,18 +48,6 @@ Item
 		port : 8089
 
 		Component.onCompleted: find()
-		onAddressFound: 
-		{
-			ChatAPI.init(address, port)
-
-			let user = {
-				name: root.userInfo.name,
-				email: root.userInfo.email,
-				password: '11121998q',
-				code: 123
-			}
-
-			serverAPI.register(resp => { console.log(resp.register_status) }, user)
-		}
+		onAddressFound: ChatAPI.init(address, port)
 	}
 }

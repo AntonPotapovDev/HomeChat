@@ -5,8 +5,8 @@ let local_ip = ''
 
 let message_log = []
 let lastIndex = 0
-let users = []
-let access_codes = [{email: 'protestandprotect52@gmail.com', code: 123}]
+let users = [ { email:'protestandprotect52@gmail.com', password: '11121998q', name: 'Anton Potapov' } ]
+let access_codes = []
 
 function main() {
     init()
@@ -123,7 +123,7 @@ function startListen() {
         }
 
         if (users[user_index].password == request.body.password)
-            response.status(200).json({ login_status: success_code })
+            response.status(200).json({ login_status: success_code, user_name: users[user_index].name })
         else
             response.status(200).json({ login_status: bad_password_code })
     })
