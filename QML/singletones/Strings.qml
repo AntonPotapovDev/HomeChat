@@ -12,4 +12,7 @@ QtObject
 	property string emailPlaceholderText    : 'Email: email@address.com'
 	property string passwordPlaceholderText : 'Password'
 	property string loginText               : 'Sign In'
+
+	property string noSuchUserError  : 'Could not find such user'
+	property string badPasswordError : 'Invalid email or password'
 }
