@@ -3,9 +3,10 @@ import HomeChat 1.0
 
 import "../JS/net_helper.js" as ChatAPI
 
-Item 
+Rectangle 
 {
 	id : root
+	color : Colors.background
 
 	property string state : 'login'
 	property var userInfo
@@ -20,6 +21,17 @@ Item
 			serverAPI : ChatAPI
 			userInfo  : root.userInfo
 		}
+		onActiveChanged: if (active) chat_animation.running = true
+		NumberAnimation 
+		{
+            id          : chat_animation
+            target      : chat_view_loader.item
+            property    : 'x'
+            from        : -root.width
+            to          : 0
+            duration    : 100
+            easing.type : Easing.InOutQuad 
+        }
 	}
 	
 	Loader 
@@ -40,6 +52,17 @@ Item
 				root.state = 'chat'
 			} 
 		}
+		onActiveChanged: if (active) login_animation.running = true
+		NumberAnimation 
+		{
+            id          : login_animation
+            target      : login_view_loader.item
+            property    : 'x'
+            from        : -root.width
+            to          : 0
+            duration    : 100
+            easing.type : Easing.InOutQuad 
+        }
 	}
 
 	ServerAddressProvider

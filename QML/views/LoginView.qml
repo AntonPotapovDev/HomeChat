@@ -68,6 +68,7 @@ Rectangle
 			}
 
 			Keys.onReturnPressed : password_field.forceActiveFocus()
+			Component.onCompleted : forceActiveFocus()
 		}
 
 		CustomField 
