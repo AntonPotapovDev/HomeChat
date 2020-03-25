@@ -19,7 +19,8 @@ add_executable(Client
 	${QML_PATH}/qml.qrc
 	${QML_PATH}/JS/net_helper.js
 	${QML_PATH}/models/MessageModel.qml
-	${QML_PATH}/views/main.qml
+	${QML_PATH}/views/MainWindow.qml
+	${QML_PATH}/views/ChatView.qml
 	${QML_PATH}/views/MessageView.qml
 	${QML_PATH}/views/LoginView.qml
 	${QML_PATH}/controls/MessageBar.qml

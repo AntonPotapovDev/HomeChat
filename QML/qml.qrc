@@ -2,7 +2,8 @@
     <qresource prefix="/">
             <file>JS/net_helper.js</file>
 		    <file>models/MessageModel.qml</file>
-            <file>views/main.qml</file>
+		    <file>views/MainWindow.qml</file>
+            <file>views/ChatView.qml</file>
             <file>views/MessageView.qml</file>
             <file>views/LoginView.qml</file>
             <file>controls/MessageBar.qml</file>
