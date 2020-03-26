@@ -52,6 +52,7 @@ Rectangle
 			Layout.leftMargin      : Sizes.largeMargin
 			Layout.rightMargin     : Sizes.largeMargin
 
+			Component.onCompleted : forceActiveFocus()
 			onSending: 
 			{
 				if (msgBar.text.length == 0)

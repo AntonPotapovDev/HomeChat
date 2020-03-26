@@ -5,8 +5,9 @@ QtObject
 {
 	property string appName : 'Home Chat'
 
-	property string sendButtonText    : 'Send'
-	property string attachButtonText  : 'Add'
+	property string sendButtonText    : '>'
+	property string attachButtonText  : '+'
+	property string messageBarPlaceholderText : 'Type message here'
 
 	property string passwordCharacter       : '*'
 	property string emailPlaceholderText    : 'Email: email@address.com'

@@ -10,6 +10,9 @@ Item
 	property alias text : textArea.text
 
 	signal sending
+	signal attach
+
+	onFocusChanged : if (focus) textArea.forceActiveFocus()
 
 	RowLayout 
 	{
@@ -39,7 +42,9 @@ Item
 						padding          : Sizes.midPadding
 						font.family      : Fonts.textFont
 						font.pointSize   : Fonts.smallPointSize
+						placeholderText  : Strings.messageBarPlaceholderText
 						color            : Fonts.textColor
+						placeholderTextColor : Fonts.placeholderTextColor
 						wrapMode         : TextEdit.Wrap
 						selectByKeyboard : true
 						selectByMouse    : true 
@@ -73,6 +78,7 @@ Item
 			Layout.preferredWidth : Sizes.messageBarButtonWidth
 			Layout.fillHeight     : true
 			color                 : Colors.uiElement
+			visible               : false // TODO: enable when this feature will be done
 
 			Text 
 			{
@@ -90,6 +96,7 @@ Item
 				id: centerMouseArea
 				anchors.fill : parent
 				hoverEnabled: true
+				onClicked : root.attach()
 			}
 
 			states: State 
