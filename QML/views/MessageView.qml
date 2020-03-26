@@ -29,6 +29,7 @@ Item
 			Repeater 
 			{
 				model : root.model
+				onCountChanged : if (flick.contentHeight > flick.height)flick.contentY = flick.contentHeight - flick.height + Sizes.extraLargeMargin
 				delegate: Item 
 				{
 					id                     : msgContainer
