@@ -26,14 +26,17 @@ Rectangle
 		{
 			Layout.fillWidth       : true
 			Layout.preferredHeight : Sizes.topPanelHeight
+			Layout.leftMargin      : Sizes.largeMargin
+			Layout.rightMargin     : Sizes.largeMargin
 			spacing                : 0
 
 			IconButton
 			{
 				width        : Sizes.backButtonWidth
 				height       : Sizes.topPanelHeight
-				symbol       : '<' //TODO: do not forget to change symbol to svg
-				iconSize     : Fonts.largePointSize
+				color        : Colors.uiElement
+				hoverColor   : Colors.hoveredUiElement
+				iconSource   : 'qrc:/svg/logout.svg'
 				onClicked    : root.logout()
 			}
 		}

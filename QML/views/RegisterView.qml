@@ -71,8 +71,9 @@ Rectangle
 		anchors.top  : root.top
 		width        : Sizes.backButtonWidth
 		height       : Sizes.topPanelHeight
-		symbol       : '<' //TODO: do not forget to change symbol to svg
-		iconSize     : Fonts.largePointSize
+		color        : Colors.uiElement
+		hoverColor   : Colors.hoveredUiElement
+		iconSource   : 'qrc:/svg/arrow_left.svg'
 		onClicked    : root.back()
 	}
 
