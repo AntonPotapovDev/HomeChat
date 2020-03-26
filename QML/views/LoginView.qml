@@ -105,7 +105,7 @@ Rectangle
 			id                  : join_link
 			width               : Sizes.customFieldWidth
 			textFormat          : Text.StyledText 
-			text                : 'Or <a href="http://">join</a>'
+			text                : Strings.joinLinkText
 			color               : Fonts.textColor
 			linkColor           : Colors.ownMessageColor
 			font.family         : Fonts.textFont
