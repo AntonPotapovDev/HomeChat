@@ -6,6 +6,7 @@
             <file>views/ChatView.qml</file>
             <file>views/MessageView.qml</file>
             <file>views/LoginView.qml</file>
+		    <file>views/RegisterView.qml</file>
             <file>controls/MessageBar.qml</file>
             <file>controls/MessageBox.qml</file>
 		    <file>controls/CustomField.qml</file>
