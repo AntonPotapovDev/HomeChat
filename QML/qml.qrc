@@ -16,5 +16,11 @@
             <file>singletones/Sizes.qml</file>
             <file>singletones/Strings.qml</file>
             <file>singletones/Fonts.qml</file>
+		    <file>svg/arrow_left.svg</file>
+		    <file>svg/arrow_right.svg</file>
+		    <file>svg/help.svg</file>
+		    <file>svg/send.svg</file>
+		    <file>svg/attach.svg</file>
+			<file>svg/settings.svg</file>
     </qresource>
 </RCC>
