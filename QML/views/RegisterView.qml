@@ -70,7 +70,7 @@ Rectangle
 		anchors.left : root.left
 		anchors.top  : root.top
 		width        : Sizes.backButtonWidth
-		height       : Sizes.backButtonHeight
+		height       : Sizes.topPanelHeight
 		symbol       : '<' //TODO: do not forget to change symbol to svg
 		iconSize     : Fonts.largePointSize
 		onClicked    : root.back()

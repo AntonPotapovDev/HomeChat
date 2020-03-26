@@ -14,19 +14,39 @@ Rectangle
 
 	property var serverAPI
 	property var userInfo
+
+	signal logout()
 	
 	ColumnLayout
 	{
 		anchors.fill : parent
+		spacing : 0
+
+		Row 
+		{
+			Layout.fillWidth       : true
+			Layout.preferredHeight : Sizes.topPanelHeight
+			spacing                : 0
+
+			IconButton
+			{
+				width        : Sizes.backButtonWidth
+				height       : Sizes.topPanelHeight
+				symbol       : '<' //TODO: do not forget to change symbol to svg
+				iconSize     : Fonts.largePointSize
+				onClicked    : root.logout()
+			}
+		}
 
 		Rectangle 
 		{
-			id                : chatRect
-			Layout.fillWidth  : true
-			Layout.fillHeight : true
-			Layout.margins    : Sizes.largeMargin
-			radius            : Sizes.roundingRadius
-			color             : Colors.uiElement
+			id                 : chatRect
+			Layout.fillWidth   : true
+			Layout.fillHeight  : true
+			Layout.leftMargin  : Sizes.largeMargin
+			Layout.rightMargin : Sizes.largeMargin
+			radius             : Sizes.roundingRadius
+			color              : Colors.uiElement
 
 			MessageModel
 			{
@@ -48,9 +68,7 @@ Rectangle
 			id                     : msgBar
 			Layout.fillWidth       : true
 			Layout.preferredHeight : Sizes.messageBarHeight
-			Layout.bottomMargin    : Sizes.largeMargin
-			Layout.leftMargin      : Sizes.largeMargin
-			Layout.rightMargin     : Sizes.largeMargin
+			Layout.margins         : Sizes.largeMargin
 
 			Component.onCompleted : forceActiveFocus()
 			onSending: 

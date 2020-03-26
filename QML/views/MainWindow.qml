@@ -25,6 +25,7 @@ Rectangle
 		{
 			serverAPI : ChatAPI
 			userInfo  : root.userInfo
+			onLogout  : root.state = 'login'
 		}
 		onActiveChanged: if (active) root.runAnimation(chat_view_loader.item)
 	}

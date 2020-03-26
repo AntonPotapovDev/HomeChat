@@ -7,7 +7,7 @@ QtObject
 
 	property string sendButtonText    : '>'
 	property string attachButtonText  : '+'
-	property string messageBarPlaceholderText : 'Type message here'
+	property string messageBarPlaceholderText : 'Type message here: \'Enter\' for sending, \'Enter + Ctrl\' for next line.'
 
 	property string passwordCharacter       : '*'
 	property string emailPlaceholderText    : 'Email: email@address.com'
