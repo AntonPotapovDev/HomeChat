@@ -5,8 +5,8 @@ let local_ip = ''
 
 let message_log = []
 let lastIndex = 0
-let users = []//[ { email:'protestandprotect52@gmail.com', password: '11121998q', name: 'Anton Potapov' } ]
-let access_codes = [ { code: 12345678, email: 'protestandprotect52@gmail.com' } ]
+let users = []
+let access_codes = [ { code: 12345678, email: 'text1@mail.com' }, { code: 12345678, email: 'text2@mail.com' } ]
 
 function main() {
     init()
