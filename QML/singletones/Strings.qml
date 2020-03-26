@@ -22,7 +22,7 @@ QtObject
 	property string registerViewLabel         : 'Register'
 	property string accessCodePlaceholderText : 'Access code from email'
 	property string namePlaceholderText       : 'Your name'
-	property string confirmPasswordPlaceholderText : 'Confirm passoword'
+	property string confirmPasswordPlaceholderText : 'Confirm password'
 
 	property string emailAreadyUsedError : 'This email address is already registered'
 	property string noAccessError        : 'This email address is not registered in the system or access code is incorrect'
