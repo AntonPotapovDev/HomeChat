@@ -36,7 +36,7 @@ Rectangle
 				height       : Sizes.topPanelHeight
 				color        : Colors.uiElement
 				hoverColor   : Colors.hoveredUiElement
-				iconSource   : 'qrc:/svg/logout.svg'
+				iconSource   : Icons.logout
 				onClicked    : root.logout()
 			}
 		}

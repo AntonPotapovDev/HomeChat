@@ -33,6 +33,7 @@ add_executable(Client
 	${QML_PATH}/singletones/Colors.qml
 	${QML_PATH}/singletones/Strings.qml
 	${QML_PATH}/singletones/Fonts.qml
+	${QML_PATH}/singletones/Icons.qml
 
     main.cpp
 	Common/QMLTypes.h

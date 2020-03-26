@@ -73,7 +73,7 @@ Rectangle
 		height       : Sizes.topPanelHeight
 		color        : Colors.uiElement
 		hoverColor   : Colors.hoveredUiElement
-		iconSource   : 'qrc:/svg/arrow_left.svg'
+		iconSource   : Icons.back
 		onClicked    : root.back()
 	}
 
