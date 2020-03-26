@@ -22,5 +22,6 @@
 		    <file>svg/send.svg</file>
 		    <file>svg/attach.svg</file>
 			<file>svg/settings.svg</file>
+			<file>svg/logout.svg</file>
     </qresource>
 </RCC>
