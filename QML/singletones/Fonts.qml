@@ -5,7 +5,7 @@ QtObject
 {
 	property color textColor            : '#ffffff'
 	property color placeholderTextColor : '#5e5e5e'
-	property color errorTextColor       : textColor//'#d4322c'//'#fa5c1e'
+	property color errorTextColor       : '#ff3d3d'
 
 	property string textFont            : 'Arial'
 

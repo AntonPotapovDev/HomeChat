@@ -16,7 +16,8 @@ QtObject
 	property string joinLinkText            : 'Or <a href="http://">join</a>'
 
 	property string noSuchUserError  : 'Could not find such user'
-	property string badPasswordError : 'Invalid email or password'
+	property string badPasswordError : 'Incorrect email or password'
+	property string invalidPasswordOrEmail : 'Invalid email or password'
 
 	property string registerViewLabel         : 'Register'
 	property string accessCodePlaceholderText : 'Access code from email'

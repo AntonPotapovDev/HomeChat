@@ -14,7 +14,7 @@ Rectangle
 	signal join()
 
 	function login() {
-		if (!email_field.acceptableInput || !password_field.acceptableInput)
+		if (!validate_input())
 			return
 
 		var info = {
@@ -36,6 +36,15 @@ Rectangle
 			default: return
 		}
 		error_text.text = text
+	}
+
+	function validate_input() {
+		if (!email_field.acceptableInput || !password_field.acceptableInput) {
+			error_text.text = Strings.invalidPasswordOrEmail
+			return false
+		}
+		error_text.text = ''
+		return true
 	}
 
 	Column 
