@@ -32,9 +32,9 @@ Rectangle
 		switch (response.register_status) {
 			case 0: successfullRegistered(email_field.text, password_field.text)
 					break
-			case 1: text = 'This email address is already registered'
+			case 1: text = Strings.emailAreadyUsedError
 					break
-			case 2: text = 'This email address is not registered in the system or access code is invalid'
+			case 2: text = Strings.noAccessError
 					break
 			default: return
 		}
@@ -43,23 +43,23 @@ Rectangle
 
 	function validate_input() {
 		if (!email_field.acceptableInput) {
-			error_text.text = 'This email address is incorrect'
+			error_text.text = Strings.incorrectEmailError
 			return false
 		}
 		if (!access_code_field.acceptableInput) {
-			error_text.text = 'Access code is an 8 digits number, please, check your email box'
+			error_text.text = Strings.incorrectCodeError
 			return false
 		}
 		if (user_name_field.text.length == 0) {
-			error_text.text = 'Your name should not be empty'
+			error_text.text = Strings.emptyNameError
 			return false
 		}
 		if (!password_field.acceptableInput) {
-			error_text.text = 'Password is an 8-16 symbols string, consist of latin characters, numbers and \'_\''
+			error_text.text = Strings.incorrectPasswordError
 			return false
 		}
 		if (confirm_password_field.text != password_field.text) {
-			error_text.text = 'Passwords are not match'
+			error_text.text = Strings.passwordsNotMatchError
 			return false
 		}
 		error_text.text = ''
@@ -77,7 +77,7 @@ Rectangle
 		Text 
 		{
 			width               : Sizes.customFieldWidth
-			text                : 'Register'
+			text                : Strings.registerViewLabel
 			color               : Colors.ownMessageColor
 			font.family         : Fonts.textFont
 			font.pointSize      : Fonts.extraLargePointSize
@@ -106,7 +106,7 @@ Rectangle
 			id                   : access_code_field
 			width                : Sizes.customFieldWidth
 			height               : Sizes.customFieldHeight
-			placeholderText      : 'Access code from email'
+			placeholderText      : Strings.accessCodePlaceholderText
 			placeholderTextColor : Fonts.placeholderTextColor
 			validator: RegularExpressionValidator
 			{
@@ -121,7 +121,7 @@ Rectangle
 			id                   : user_name_field
 			width                : Sizes.customFieldWidth
 			height               : Sizes.customFieldHeight
-			placeholderText      : 'Your name'
+			placeholderText      : Strings.namePlaceholderText
 			placeholderTextColor : Fonts.placeholderTextColor
 
 			Keys.onReturnPressed : password_field.forceActiveFocus()
@@ -149,7 +149,7 @@ Rectangle
 			id                   : confirm_password_field
 			width                : Sizes.customFieldWidth
 			height               : Sizes.customFieldHeight
-			placeholderText      : 'Confirm passoword'
+			placeholderText      : Strings.confirmPasswordPlaceholderText
 			placeholderTextColor : Fonts.placeholderTextColor
 			echoMode             : TextInput.Password
 			passwordCharacter    : Strings.passwordCharacter
@@ -163,7 +163,7 @@ Rectangle
 			height      : Sizes.customFieldHeight
 			backColor   : Colors.ownMessageColor
 			hoverColor  : Colors.ownMessageHoverColor
-			text        : 'Register'
+			text        : Strings.registerViewLabel
 			focusPolicy : Qt.NoFocus
 
 			onClicked : root.register()

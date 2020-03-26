@@ -15,4 +15,17 @@ QtObject
 
 	property string noSuchUserError  : 'Could not find such user'
 	property string badPasswordError : 'Invalid email or password'
+
+	property string registerViewLabel         : 'Register'
+	property string accessCodePlaceholderText : 'Access code from email'
+	property string namePlaceholderText       : 'Your name'
+	property string confirmPasswordPlaceholderText : 'Confirm passoword'
+
+	property string emailAreadyUsedError : 'This email address is already registered'
+	property string noAccessError        : 'This email address is not registered in the system or access code is incorrect'
+	property string incorrectEmailError  : 'This email address is incorrect'
+	property string incorrectCodeError   : 'Access code is an 8 digits number, please, check your email box'
+	property string emptyNameError       : 'Your name should not be empty'
+	property string incorrectPasswordError  : 'Password is an 8-16 symbols string, consist of latin characters, numbers and \'_\''
+	property string passwordsNotMatchError  : 'Passwords are not match'
 }
