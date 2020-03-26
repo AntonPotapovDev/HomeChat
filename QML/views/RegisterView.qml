@@ -1,5 +1,4 @@
 import QtQuick 2.14
-import QtQuick.Layouts 1.14
 import HomeChat 1.0
 
 import "../controls/"
@@ -12,6 +11,7 @@ Rectangle
 	property var serverAPI
 
 	signal successfullRegistered(string email, string name)
+	signal back()
 
 	function register() {
 		if (!validate_input())
@@ -63,6 +63,17 @@ Rectangle
 		}
 		error_text.text = ''
 		return true
+	}
+
+	IconButton
+	{
+		anchors.left : root.left
+		anchors.top  : root.top
+		width        : Sizes.backButtonWidth
+		height       : Sizes.backButtonHeight
+		symbol       : '<' //TODO: do not forget to change symbol to svg
+		iconSize     : Fonts.largePointSize
+		onClicked    : root.back()
 	}
 
 	Column 

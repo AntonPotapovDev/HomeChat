@@ -82,7 +82,8 @@ Rectangle
 				}
 				root.userInfo = info
 				root.state = 'chat'
-			} 
+			}
+			onBack: root.state = 'login'
 		}
 		onActiveChanged: if (active) register_animation.running = true
 		NumberAnimation 

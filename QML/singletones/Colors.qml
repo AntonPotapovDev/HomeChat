@@ -9,5 +9,8 @@ QtObject
 
 	property color ownMessageColor      : '#4285bd'
 	property color ownMessageHoverColor : '#4992c5'
-	property color otherMessageColor    : '#404040'
+	property color otherMessageColor    : background
+
+	property color iconColor        : uiElement
+	property color hoveredIconCOlor : hoveredUiElement
 }

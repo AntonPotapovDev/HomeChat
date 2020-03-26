@@ -1,5 +1,4 @@
 import QtQuick 2.14
-import QtQuick.Layouts 1.14
 import HomeChat 1.0
 
 import "../controls/"

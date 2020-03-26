@@ -12,6 +12,9 @@ QtObject
 	property real customFieldWidth  : 300
 	property real customFieldHeight : 50
 
+	property real backButtonWidth  : 50
+	property real backButtonHeight : 50
+
 	property int smallMargin      : 5
 	property int mediumMargin     : 10
 	property int largeMargin      : 20
