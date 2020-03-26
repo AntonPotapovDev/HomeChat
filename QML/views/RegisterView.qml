@@ -3,16 +3,15 @@ import QtQuick.Layouts 1.14
 import HomeChat 1.0
 
 import "../controls/"
-import "../JS/net_helper.js" as API
 
 Rectangle 
 {
 	id    : root
 	color : Colors.background
 
-	property var serverAPI : API
+	property var serverAPI
 
-	signal successfullRegistered(string email, string password)
+	signal successfullRegistered(string email, string name)
 
 	function register() {
 		if (!validate_input())
@@ -30,7 +29,7 @@ Rectangle
 	function process_response(response) {
 		var text = ''
 		switch (response.register_status) {
-			case 0: successfullRegistered(email_field.text, password_field.text)
+			case 0: successfullRegistered(email_field.text, user_name_field.text)
 					break
 			case 1: text = Strings.emailAreadyUsedError
 					break
@@ -65,8 +64,6 @@ Rectangle
 		error_text.text = ''
 		return true
 	}
-
-	Component.onCompleted : serverAPI.init('192.168.1.5', 8089)
 
 	Column 
 	{

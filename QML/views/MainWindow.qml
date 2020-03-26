@@ -65,6 +65,37 @@ Rectangle
         }
 	}
 
+	Loader
+	{
+		id           : register_view_loader
+		anchors.fill : parent
+		active       : root.state == 'register'
+		sourceComponent: RegisterView 
+		{
+			serverAPI : ChatAPI
+			onSuccessfullRegistered:
+			{
+				var info = {
+					email: email,
+					name: name
+				}
+				root.userInfo = info
+				root.state = 'chat'
+			} 
+		}
+		onActiveChanged: if (active) login_animation.running = true
+		NumberAnimation 
+		{
+            id          : register_animation
+            target      : register_view_loader.item
+            property    : 'x'
+            from        : -root.width
+            to          : 0
+            duration    : Sizes.viewSwitchingAnimationDuration
+            easing.type : Easing.InOutQuad 
+        }		
+	}
+
 	ServerAddressProvider
 	{
 		id   : server_address

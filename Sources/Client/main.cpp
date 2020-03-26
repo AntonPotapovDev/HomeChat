@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
 
 	registerTypes();
 
-	QQuickView view(QUrl("qrc:/views/RegisterView.qml"));
+	QQuickView view(QUrl("qrc:/views/MainWindow.qml"));
 	view.setMinimumSize({ 800, 600 });
 	view.setResizeMode(QQuickView::ResizeMode::SizeRootObjectToView);
 	view.show();
