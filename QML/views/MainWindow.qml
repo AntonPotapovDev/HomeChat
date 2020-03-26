@@ -50,7 +50,8 @@ Rectangle
 				}
 				root.userInfo = info
 				root.state = 'chat'
-			} 
+			}
+			onJoin: root.state = 'register'
 		}
 		onActiveChanged: if (active) login_animation.running = true
 		NumberAnimation 
@@ -83,7 +84,7 @@ Rectangle
 				root.state = 'chat'
 			} 
 		}
-		onActiveChanged: if (active) login_animation.running = true
+		onActiveChanged: if (active) register_animation.running = true
 		NumberAnimation 
 		{
             id          : register_animation

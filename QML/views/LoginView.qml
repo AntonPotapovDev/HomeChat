@@ -12,6 +12,7 @@ Rectangle
 	property var serverAPI
 
 	signal successfullAutorized(string email, string name)
+	signal join()
 
 	function login() {
 		if (!email_field.acceptableInput || !password_field.acceptableInput)
@@ -98,6 +99,22 @@ Rectangle
 			focusPolicy : Qt.NoFocus
 
 			onClicked : root.login()
+		}
+
+		Text 
+		{
+			id                  : join_link
+			width               : Sizes.customFieldWidth
+			textFormat          : Text.StyledText 
+			text                : 'Or <a href="http://">join</a>'
+			color               : Fonts.textColor
+			linkColor           : Colors.ownMessageColor
+			font.family         : Fonts.textFont
+			font.pointSize      : Fonts.smallPointSize
+			verticalAlignment   : Text.AlignVCenter
+			horizontalAlignment : Text.AlignHCenter
+
+			onLinkActivated: root.join()
 		}
 
 		Text 
