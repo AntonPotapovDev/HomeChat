@@ -1,6 +1,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.14
+import QtGraphicalEffects 1.14
 import HomeChat 1.0
 
 Item 
@@ -80,15 +81,20 @@ Item
 			color                 : Colors.uiElement
 			visible               : false // TODO: enable when this feature will be done
 
-			Text 
+			Image 
 			{
-				anchors.fill        : parent
-				text                : Strings.attachButtonText
-				color               : Fonts.textColor
-				font.family         : Fonts.textFont
-				font.pointSize      : Fonts.largePointSize
-				verticalAlignment   : Text.AlignVCenter
-				horizontalAlignment : Text.AlignHCenter
+				id               : attach_img
+				anchors.centerIn : parent
+				width            : parent.width / 2
+				height           : parent.height / 2
+				source           : Icons.attach
+			}
+
+			ColorOverlay 
+			{
+				anchors.fill : attach_img
+				source       : attach_img
+				color        : Colors.background
 			}
 
 			MouseArea 
@@ -174,15 +180,21 @@ Item
 				radius       : Sizes.roundingRadius
 				z            : 1
 
-				Text 
+				Image
 				{
-					anchors.fill        : parent
-					text                : Strings.sendButtonText
-					color               : Fonts.textColor
-					font.family         : Fonts.textFont
-					font.pointSize      : Fonts.largePointSize
-					verticalAlignment   : Text.AlignVCenter
-					horizontalAlignment : Text.AlignHCenter
+					id               : send_img
+					anchors.centerIn : parent
+					width            : parent.width / 2
+					height           : parent.height / 2
+					source           : Icons.send
+					antialiasing     : true
+				}
+
+				ColorOverlay 
+				{
+					anchors.fill : send_img
+					source       : send_img
+					color        : Colors.background
 				}
 			}
 

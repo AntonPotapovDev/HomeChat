@@ -5,7 +5,7 @@ QtObject
 {
 	property color background       : '#404040'
 	property color uiElement        : '#262626'
-	property color hoveredUiElement : '#333333'
+	property color hoveredUiElement : '#1a1a1a'
 
 	property color ownMessageColor      : '#4285bd'
 	property color ownMessageHoverColor : '#4992c5'
