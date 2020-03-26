@@ -11,6 +11,11 @@ Rectangle
 	property string state : 'login'
 	property var userInfo
 
+	function runAnimation(target) {
+		switch_animation.target = target
+		switch_animation.running = true
+	}
+
 	Loader 
 	{
 		id           : chat_view_loader
@@ -21,17 +26,7 @@ Rectangle
 			serverAPI : ChatAPI
 			userInfo  : root.userInfo
 		}
-		onActiveChanged: if (active) chat_animation.running = true
-		NumberAnimation 
-		{
-            id          : chat_animation
-            target      : chat_view_loader.item
-            property    : 'x'
-            from        : -root.width
-            to          : 0
-            duration    : Sizes.viewSwitchingAnimationDuration
-            easing.type : Easing.InOutQuad 
-        }
+		onActiveChanged: if (active) root.runAnimation(chat_view_loader.item)
 	}
 	
 	Loader 
@@ -53,17 +48,7 @@ Rectangle
 			}
 			onJoin: root.state = 'register'
 		}
-		onActiveChanged: if (active) login_animation.running = true
-		NumberAnimation 
-		{
-            id          : login_animation
-            target      : login_view_loader.item
-            property    : 'x'
-            from        : -root.width
-            to          : 0
-            duration    : Sizes.viewSwitchingAnimationDuration
-            easing.type : Easing.InOutQuad 
-        }
+		onActiveChanged: if (active) root.runAnimation(login_view_loader.item)
 	}
 
 	Loader
@@ -85,18 +70,18 @@ Rectangle
 			}
 			onBack: root.state = 'login'
 		}
-		onActiveChanged: if (active) register_animation.running = true
-		NumberAnimation 
-		{
-            id          : register_animation
-            target      : register_view_loader.item
-            property    : 'x'
-            from        : -root.width
-            to          : 0
-            duration    : Sizes.viewSwitchingAnimationDuration
-            easing.type : Easing.InOutQuad 
-        }		
+		onActiveChanged: if (active) root.runAnimation(register_view_loader.item)
 	}
+
+	NumberAnimation 
+	{
+        id          : switch_animation
+        property    : 'x'
+        from        : -root.width
+        to          : 0
+        duration    : Sizes.viewSwitchingAnimationDuration
+        easing.type : Easing.InOutQuad 
+    }
 
 	ServerAddressProvider
 	{
