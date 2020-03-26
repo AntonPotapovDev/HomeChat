@@ -70,6 +70,7 @@ Rectangle
 			width           : Sizes.customFieldWidth
 			height          : Sizes.customFieldHeight
 			focus           : true
+			text : 'protestandprotect52@gmail.com'
 			placeholderText : Strings.emailPlaceholderText
 			validator: RegularExpressionValidator
 			{
@@ -85,6 +86,7 @@ Rectangle
 			id                   : password_field
 			width                : Sizes.customFieldWidth
 			height               : Sizes.customFieldHeight
+			text: '11121998q'
 			placeholderText      : Strings.passwordPlaceholderText
 			placeholderTextColor : Fonts.placeholderTextColor
 			echoMode             : TextInput.Password
