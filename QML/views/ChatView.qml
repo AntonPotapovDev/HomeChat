@@ -28,6 +28,7 @@ Rectangle
 			Layout.preferredHeight : Sizes.topPanelHeight
 			Layout.leftMargin      : Sizes.largeMargin
 			Layout.rightMargin     : Sizes.largeMargin
+			Layout.topMargin       : Sizes.smallMargin
 			spacing                : 0
 
 			IconButton
