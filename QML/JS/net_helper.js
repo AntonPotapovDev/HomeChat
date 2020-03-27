@@ -6,8 +6,9 @@ function init(address, port) {
     server_port = port 
 }
 
-function messages(callback, index) {
-    let params = [ { name : 'from', value : index.toString() } ]
+function messages(callback, from, to) {
+    let params = [ { name: 'from', value: from.toString() } ]
+    if (to) params.push({ name: 'to', value: to.toString() })
     let request = method('message.get', callback, params)
     request.send()
 }

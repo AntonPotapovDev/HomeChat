@@ -35,7 +35,7 @@ Item
 				onCountChanged:
 				{  
 					if (count > prevCount && flick.contentHeight > flick.height)
-						flick.contentY = flick.contentHeight - flick.height + Sizes.extraLargeMargin
+						flick.contentY = flick.contentHeight - flick.height + flick.bottomMargin
 					
 					if (count > prevCount && count > root.model.optimalMessageCount)
 						model.remove(0, count - prevCount)
