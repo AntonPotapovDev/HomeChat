@@ -11,7 +11,12 @@ Item
 	
 	property alias model : list_model 
 
-	Component.onCompleted : timer.start()
+	Component.onCompleted: serverAPI.lastMessages(initReceive, Sizes.optimalMessageCount)
+
+	function initReceive(resp) {
+		receiveMessages(resp)
+		timer.start()
+	}
 
 	function receiveMessages(resp) {
 		var messages = resp.messages
@@ -53,7 +58,7 @@ Item
 		id               : timer
 		interval         : Sizes.messageFetchingInterval
 		repeat           : true
-		triggeredOnStart : true
+		triggeredOnStart : false
 
 		onTriggered: serverAPI.messages(root.receiveMessages, root.lastMsgIndex)
 	}

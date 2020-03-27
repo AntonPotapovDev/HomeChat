@@ -5,8 +5,8 @@ let local_ip = ''
 
 let message_log = []
 let lastIndex = 0
-let users = []
-let access_codes = [ { code: 12345678, email: 'text1@mail.com' }, { code: 12345678, email: 'text2@mail.com' } ]
+let users = [ { email: 'text1@mail.com', name: 'Tosha', password: '11121998q'} ]
+let access_codes = []//[ { code: 12345678, email: 'text1@mail.com' }, { code: 12345678, email: 'text2@mail.com' } ]
 
 function main() {
     init()
@@ -61,12 +61,20 @@ function startListen() {
     app.use(bodyParser.json())
 
     app.post('/message.get', (request, response) => {
-        let index = parseInt(request.query.from)
+        let from = parseInt(request.query.from)
+        let last = parseInt(request.query.last)
 
-        let result = index !== undefined && index != -1 ? { messages: message_log.slice(index) }
-            : { messages: message_log }
+        let messages = []
+        if (!isNaN(from)) {
+            from = from < 0 ? 0 : from
+            messages = message_log.slice(from)
+        }
+        else if (!isNaN(last)) {
+            last = message_log.length >= last ? last : message_log.length
+            messages = message_log.slice(message_log.length - last)
+        }
 
-        response.status(200).json(result)
+        response.status(200).json({ messages: messages })
     })
 
     app.post('/message.new', (request, response) => {

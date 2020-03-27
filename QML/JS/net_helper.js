@@ -12,6 +12,12 @@ function messages(callback, index) {
     request.send()
 }
 
+function lastMessages(callback, count) {
+    let params = [ { name : 'last', value : count.toString() } ]
+    let request = method('message.get', callback, params)
+    request.send()
+}
+
 function send(message) {
     let request = method('message.new')
     let json = JSON.stringify(message)
