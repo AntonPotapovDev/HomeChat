@@ -8,10 +8,11 @@ Item
 	property var serverAPI
 	property var userInfo
 	property int lastMsgIndex : -1
+	property int optimalMessageCount
 	
 	property alias model : list_model 
 
-	Component.onCompleted: serverAPI.lastMessages(initReceive, Sizes.optimalMessageCount)
+	Component.onCompleted: serverAPI.lastMessages(initReceive, optimalMessageCount)
 
 	function initReceive(resp) {
 		receiveMessages(resp)

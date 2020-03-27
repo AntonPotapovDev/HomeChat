@@ -28,8 +28,21 @@ Item
 
 			Repeater 
 			{
-				model : root.model
-				onCountChanged : if (flick.contentHeight > flick.height)flick.contentY = flick.contentHeight - flick.height + Sizes.extraLargeMargin
+				property int prevCount : 0
+
+				model : root.model.model
+
+				onCountChanged:
+				{  
+					if (count > prevCount && flick.contentHeight > flick.height)
+						flick.contentY = flick.contentHeight - flick.height + Sizes.extraLargeMargin
+					
+					if (count > prevCount && count > root.model.optimalMessageCount)
+						model.remove(0, count - prevCount)
+
+					prevCount = count
+				}
+
 				delegate: Item 
 				{
 					id                     : msgContainer

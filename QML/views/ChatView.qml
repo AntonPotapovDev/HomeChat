@@ -57,13 +57,14 @@ Rectangle
 				id        : msgModel
 				serverAPI : root.serverAPI
 				userInfo  : root.userInfo
+				optimalMessageCount : Sizes.optimalMessageCount
 			}
 
 			MessageView 
 			{
 				id           : msgView
 				anchors.fill : parent
-				model        : msgModel.model
+				model        : msgModel
 			}
 		}
 
