@@ -62,13 +62,13 @@ function startListen() {
 
     app.post('/message.get', (request, response) => {
         let from = parseInt(request.query.from)
-        let to   = praseInt(request.query.to)
+        let to   = parseInt(request.query.to)
         let last = parseInt(request.query.last)
 
         let messages = []
         if (!isNaN(from)) {
             from = from < 0 ? 0 : from
-            to = isNaN(to) || to < 0 ? undefined : to
+            to = isNaN(to) || to < 0 ? 0 : to
             messages = message_log.slice(from, to)
         }
         else if (!isNaN(last)) {
