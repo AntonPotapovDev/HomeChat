@@ -68,7 +68,7 @@ function startListen() {
         let messages = []
         if (!isNaN(from)) {
             from = from < 0 ? 0 : from
-            to = isNaN(to) || to < 0 ? 0 : to
+            to = isNaN(to) || to < 0 ? undefined : to
             messages = message_log.slice(from, to)
         }
         else if (!isNaN(last)) {

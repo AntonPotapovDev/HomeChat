@@ -27,11 +27,14 @@ Item
 		if (pendingMessages.length == 0)
 			return
 
+
 		for (var i = 0; i < pendingMessages.length; i++)
 			list_model.append(pendingMessages[i])
-		pendingMessages.clear()
+		pendingMessages = []
 
-		list_model.remove(0, Math.max(list_model.count - optimalMessageCount, 0))
+		var countToDelete =  Math.max(list_model.count - optimalMessageCount, 0)
+		if (countToDelete > 0)
+			list_model.remove(0, countToDelete)
 	}
 
 	function pushOldMessages() {
@@ -40,10 +43,11 @@ Item
 
 		for (var i = pendingOldMessages.length - 1; i >= 0; i--)
 			list_model.insert(0, pendingOldMessages[i])
-		pendingOldMessages.clear()
+		pendingOldMessages = []
 
 		var countToDelete = Math.max(list_model.count - optimalMessageCount, 0)
-		list_model.remove(list_model.length - countToDelete, countToDelete)
+		if (countToDelete > 0)
+			list_model.remove(list_model.length - countToDelete, countToDelete)
 	}
 
 	function receiveMessages(resp) {
@@ -54,10 +58,10 @@ Item
 			pendingMessages.push(element)
 		}
 
-		if (messages && messages.length !== 0)
-			lastMsgIndex = messages[messages.length - 1].index
-
-		newMessagesReceived()
+		if (messages && messages.length !== 0) {
+			lastMsgIndex = messages[messages.length - 1].index + 1
+			newMessagesReceived()
+		}
 	}
 
 	function receiveOldMessages(resp) {
@@ -68,15 +72,14 @@ Item
 			pendingOldMessages.push(element)
 		}
 
-		if (messages && messages.length !== 0)
+		if (messages && messages.length !== 0) {
 			firstMsgIndex = messages[0].index
-
-		oldMessagesReceived()
+			oldMessagesReceived()
+		}
 	}
 
 	function initReceive(resp) {
-		receiveMessages()
-		pushNewMessages()
+		receiveMessages(resp)
 		timer.start()
 	}
 

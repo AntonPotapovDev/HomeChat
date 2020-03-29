@@ -58,7 +58,9 @@ Rectangle
 				serverAPI : root.serverAPI
 				userInfo  : root.userInfo
 				interval  : Sizes.messageFetchingInterval
+				packSize  : 5
 				optimalMessageCount : Sizes.optimalMessageCount
+				onNewMessagesReceived : pushNewMessages()
 			}
 
 			MessageView 
