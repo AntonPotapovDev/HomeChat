@@ -57,6 +57,7 @@ Rectangle
 				id        : msgModel
 				serverAPI : root.serverAPI
 				userInfo  : root.userInfo
+				interval  : Sizes.messageFetchingInterval
 				optimalMessageCount : Sizes.optimalMessageCount
 			}
 
