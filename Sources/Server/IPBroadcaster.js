@@ -14,17 +14,17 @@ class IPBroadcaster {
     Start() {
         const emiter = require('dgram').createSocket('udp4');
 
+        let broadcast = () => {
+            let msg = Buffer.from(this._local_ip);
+            emiter.send(msg, 0, msg.length, this._port, this._address, error => {
+                if (error)
+                    console.log(error);
+            });
+        };
+
         emiter.bind(() => {
             emiter.setBroadcast(true);
-            broadcast_task = setInterval(this._broadcast, this._interval);
-        });
-    }
-
-    _broadcast() {
-        let msg = Buffer.from(this._local_ip);
-        emiter.send(msg, 0, msg.length, this._port, this._address, error => {
-            if (error)
-                console.log(error);
+            setInterval(broadcast, this._interval);
         });
     }
 
