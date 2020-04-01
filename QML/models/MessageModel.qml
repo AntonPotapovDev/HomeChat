@@ -11,7 +11,7 @@ Item
 	property int packSize
 	
 	property alias list     : list_model
-	property alias interval : timer.interval 
+	property alias interval : timer.interval
 
 	property int firstMsgIndex      : -1
 	property int lastMsgIndex       : -1
@@ -26,7 +26,6 @@ Item
 	function pushNewMessages() {
 		if (pendingMessages.length == 0)
 			return
-
 
 		for (var i = 0; i < pendingMessages.length; i++)
 			list_model.append(pendingMessages[i])

@@ -10,6 +10,7 @@ Item
 	id : root
 
 	property var model : null
+	property bool onTop : flick.contentHeigh > flick.height && flick.contentY < flick.contentHeight / 2
 
 	Flickable 
 	{
@@ -19,6 +20,12 @@ Item
 		topMargin     : Sizes.extraLargeMargin
 		bottomMargin  : Sizes.extraLargeMargin
 		clip          : true
+
+		onAtYBeginningChanged: 
+		{
+			if (atYBeginning && contentY < -topMargin)
+				model.requestOldMessages()
+		}
 
 		ColumnLayout
 		{
@@ -34,7 +41,7 @@ Item
 
 				onCountChanged:
 				{  
-					if (count > prevCount && flick.contentHeight > flick.height)
+					if (count > prevCount && flick.contentHeight > flick.height && !root.onTop)
 						flick.contentY = flick.contentHeight - flick.height + flick.bottomMargin
 
 					prevCount = count

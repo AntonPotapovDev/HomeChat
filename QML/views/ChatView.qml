@@ -59,8 +59,9 @@ Rectangle
 				userInfo  : root.userInfo
 				interval  : Sizes.messageFetchingInterval
 				packSize  : 5
-				optimalMessageCount : Sizes.optimalMessageCount
-				onNewMessagesReceived : pushNewMessages()
+				optimalMessageCount   : Sizes.optimalMessageCount
+				onNewMessagesReceived : if (!msgView.onTop) pushNewMessages()
+				onOldMessagesReceived : if (msgView.onTop) { console.log(msgView.onTop); pushOldMessages(); }
 			}
 
 			MessageView 

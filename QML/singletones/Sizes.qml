@@ -29,5 +29,5 @@ QtObject
 	property int viewSwitchingAnimationDuration : 250
 	property int messageFetchingInterval        : 250
 
-	property int optimalMessageCount : 20
+	property int optimalMessageCount : 5
 }
