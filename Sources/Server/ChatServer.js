@@ -9,10 +9,9 @@ const port = 8089
 const broadcast_address = '255.255.255.255'
 
 class ChatServer {
-    constructor(port, database, broadcaster) {
+    constructor(port, database) {
         this._port = port;
         this._database = database;
-        this._broadcaster = broadcaster;
         this._app = require('express')();
         this._app.use(require('body-parser').json());
         this._init_methods();
@@ -20,8 +19,6 @@ class ChatServer {
 
     Start() {
        this._app.listen(this._port);
-       if (this._broadcaster)
-           this.this._broadcaster.Start()
     }
 
     _init_methods() {
@@ -115,8 +112,8 @@ function main() {
     server.Start();
 
     let IPBroadcaster = require('./IPBroadcaster').IPBroadcaster;
-    let broadcaster = new IPBroadcaster(port, broadcast_address, 500)
-    broadcaster.Start()
+    let broadcaster = new IPBroadcaster(port, broadcast_address, 500);
+    broadcaster.Start();
 }
 
 main();
