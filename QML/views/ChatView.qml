@@ -58,10 +58,11 @@ Rectangle
 				serverAPI : root.serverAPI
 				userInfo  : root.userInfo
 				interval  : Sizes.messageFetchingInterval
-				packSize  : 5
+				packSize  : Sizes.messagePackSize
 				optimalMessageCount   : Sizes.optimalMessageCount
-				onNewMessagesReceived : if (!msgView.onTop) pushNewMessages()
-				onOldMessagesReceived : if (msgView.onTop) { console.log(msgView.onTop); pushOldMessages(); }
+				//TODO: enable in the future
+				onNewMessagesReceived : /*if (!msgView.onTop)*/ pushNewMessages()
+				//onOldMessagesReceived : if (msgView.onTop) { console.log(msgView.onTop); pushOldMessages(); }
 			}
 
 			MessageView 

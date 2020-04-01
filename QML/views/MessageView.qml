@@ -21,11 +21,12 @@ Item
 		bottomMargin  : Sizes.extraLargeMargin
 		clip          : true
 
-		onAtYBeginningChanged: 
-		{
-			if (atYBeginning && contentY < -topMargin)
-				model.requestOldMessages()
-		}
+		//TODO: enable in the future
+		//onAtYBeginningChanged: 
+		//{
+		//	if (atYBeginning && contentY < -topMargin)
+		//		model.requestOldMessages()
+		//}
 
 		ColumnLayout
 		{
